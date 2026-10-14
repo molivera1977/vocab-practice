@@ -788,3 +788,4 @@ body.comp-active .container { max-width: 1160px; }
                font-size:0.95rem; font-weight:700; padding:8px 16px; cursor:pointer; }
 .signout-btn:hover { border-color:#999; color:#333; }
 .again-note { text-align:center; color:#555; font-size:1rem; margin:10px 0 0; }
+.signout-sub { display:block; font-size:0.8rem; font-weight:600; color:#888; margin-top:2px; }

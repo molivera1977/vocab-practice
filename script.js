@@ -401,7 +401,7 @@ function applyLocks(name) {
     const sub  = btn.querySelector('.form-btn-sub');
     if (done === 0)      { btn.classList.remove('locked'); sub.textContent = act.sub; }
     else if (done === 1) { btn.classList.remove('locked'); sub.textContent = '✅ Done once · 1 more try'; }
-    else                 { btn.classList.add('locked');    sub.textContent = '🔒 2 of 2 tries used'; }
+    else                 { btn.classList.add('locked');    sub.textContent = '🔒 2 of 2 tries used · ask Mr. O'; }
   });
 }
 
@@ -1840,6 +1840,9 @@ const app = {
     const used = getSectionAttempts(this.studentName)[this.currentSection] || 0;
     const left = SHARE_MODE || reviewMode ? 1 : Math.max(0, 2 - used);
     btn.classList.toggle('hidden', left === 0);
+    const sub = document.getElementById('again-sub');
+    if (sub) sub.textContent = SHARE_MODE || reviewMode ? 'Start this one over.'
+      : `Start this one over. You have ${left} ${left === 1 ? 'try' : 'tries'} left.`;
     note.classList.toggle('hidden', left !== 0);
     note.textContent = left === 0 ? '✅ You used both tries for this activity. Go back to your activities to pick another one.' : '';
   },

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wonders Vocabulary Practice</title>
-  <link rel="stylesheet" href="style.css?v=vp11-menu" />
+  <link rel="stylesheet" href="style.css?v=vp12-why" />
 </head>
 <body>
 <canvas id="confetti-canvas"></canvas>
@@ -299,12 +299,12 @@
       <div id="missed-items"></div>
     </div>
     <div class="end-btns">
-      <button class="start-btn" onclick="app.backToMenu()">📋 Back to My Activities</button>
-      <button class="start-btn" id="again-btn" style="background:#27ae60;box-shadow:0 5px 0 #1e8449;" onclick="app.doAgain()">🔄 Do This Activity Again</button>
+      <button class="start-btn" onclick="app.backToMenu()">📋 Back to My Activities<span class="form-btn-sub">Pick another activity. You stay signed in.</span></button>
+      <button class="start-btn" id="again-btn" style="background:#27ae60;box-shadow:0 5px 0 #1e8449;" onclick="app.doAgain()">🔄 Do This Activity Again<span class="form-btn-sub" id="again-sub">Start this one over.</span></button>
     </div>
     <p id="again-note" class="again-note hidden"></p>
     <div style="text-align:center;margin-top:14px;">
-      <button class="signout-btn" onclick="app.restart()">🚪 Sign Out (only when you are all done)</button>
+      <button class="signout-btn" onclick="app.restart()">🚪 Sign Out<span class="signout-sub">Only when you are all done. You will go back to the start.</span></button>
     </div>
     <div id="review-next-btn" class="hidden" style="text-align:center;margin-top:12px;">
       <button class="start-btn" style="background:#8e44ad;box-shadow:0 5px 0 #6c3483;" onclick="app._showReviewPicker()">🔍 Review Another Activity</button>
@@ -369,6 +369,6 @@
 
 <script src="share.js?v=3"></script>
 <script src="data/stories.js?v=2"></script>
-<script src="script.js?v=vp11-menu"></script>
+<script src="script.js?v=vp12-why"></script>
 </body>
 </html>
