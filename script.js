@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   VOCAB PRACTICE · script.js
+   WONDERS VOCABULARY PRACTICE · script.js
    One site for every story's vocab lists (data/stories.js).
    Built on the A World of Change Review engine: same sign-in, read aloud,
    timers, save and resume, time-keeping, share link and score sending.
@@ -1773,14 +1773,14 @@ const app = {
       })
     ).join('');
 
-    const html = `<html><head><title>Vocab Practice Scores</title>
+    const html = `<html><head><title>Wonders Vocabulary Practice Scores</title>
       <style>body{font-family:Arial;padding:20px;}h2{color:#1a3a6b;}
       table{width:100%;border-collapse:collapse;margin-top:12px;}
       th,td{border:1px solid #ccc;padding:8px 12px;text-align:center;}
       th{background:#1a3a6b;color:white;}
       .good{color:green;font-weight:bold;}.ok{color:orange;font-weight:bold;}.bad{color:red;font-weight:bold;}</style>
       </head><body>
-      <h2>📚 Vocab Practice — Score Report</h2>
+      <h2>📚 Wonders Vocabulary Practice — Score Report</h2>
       <p>Printed: ${new Date().toLocaleString()}</p>
       <table><tr><th>Name</th><th>Section</th><th>Attempt</th><th>Score</th><th>%</th><th>Time</th><th>Date</th></tr>${rows}</table>
       </body></html>`;
@@ -1955,6 +1955,6 @@ app.init();
   btn.textContent = '🔒 Not Open Yet';
   const note = document.createElement('p');
   note.className = 'locked-note';
-  note.textContent = "Mr. O will let you know when Vocab Practice is ready!";
+  note.textContent = "Mr. O will let you know when Wonders Vocabulary Practice is ready!";
   btn.insertAdjacentElement('afterend', note);
 })();
