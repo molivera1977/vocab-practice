@@ -761,7 +761,8 @@ body.comp-active .container { max-width: 1160px; }
 .vp-story-title { color:var(--primary); margin:4px 0 10px; font-size:1.25rem; }
 .vp-list { margin-bottom:16px; }
 .vp-list-title { font-weight:800; color:#555; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem; margin-bottom:8px; }
-.vp-sentence { display:block; margin-top:10px; font-weight:600; }
+.vp-sentence { display:block; margin-top:10px; font-weight:400; }
+.vp-sentence strong { font-weight:900; }
 #question-text strong { color:var(--primary); text-decoration:underline; text-underline-offset:4px; }
 .vp-why { margin-top:10px; padding-top:10px; border-top:2px dashed rgba(0,0,0,0.15); font-size:1.05rem; line-height:1.5; }
 

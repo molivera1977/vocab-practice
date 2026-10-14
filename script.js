@@ -196,7 +196,7 @@ function sectionBank(section) {
   if (act.kind === 'yesno') {
     return act.list.usedRight.map((it, i) => ({
       id: 'Y' + num(i), word: words[i].word, fixed: true,
-      q: `Is the dark word used the right way?<br><span class="vp-sentence">“${markWord(it.sentence, words[i].word)}”</span>`,
+      q: `Is the underlined word used the right way?<br><span class="vp-sentence">“${markWord(it.sentence, words[i].word)}”</span>`,
       choices: ['Yes', 'No'], answer: it.answer === 'Yes' ? 0 : 1
     }));
   }
