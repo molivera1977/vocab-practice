@@ -270,6 +270,7 @@ function letterGradeStudent(pct) {
 }
 
 let hlTimer = null;
+const liveUtterances = new Set();   // speech in progress, held so its events still arrive
 function stopActiveSpeech() {
   clearTimeout(hlTimer);
   window.speechSynthesis.cancel();
@@ -283,12 +284,33 @@ function stopActiveSpeech() {
    arrives shortly after speaking starts, step through the
    words on a timer paced by word length and speech rate. */
 function addHighlightFallback(u, spans) {
-  let fired = false, i = 0;
+  let fired = false, i = 0, ended = false;
   const prevB = u.onboundary, prevE = u.onend;
   u.onboundary = e => { if (e.name === 'word' && !fired) { fired = true; clearTimeout(hlTimer); } if (prevB) prevB(e); };
-  u.onend = e => { clearTimeout(hlTimer); spans.forEach(s => s.classList.remove('hl')); if (prevE) prevE(e); };
+  // The end of the speech always stops the highlight, however the voice reports it:
+  // a normal end, an error or cancel, or (some Chromebook voices) no event at all,
+  // which the watch below catches by seeing the voice has gone quiet.
+  const finish = e => {
+    if (ended) return;
+    ended = true;
+    clearInterval(watch);
+    clearTimeout(hlTimer);
+    spans.forEach(s => s.classList.remove('hl'));
+    liveUtterances.delete(u);
+    if (prevE) prevE(e || {});
+  };
+  u.onend = finish;
+  u.onerror = finish;
+  // Chrome can drop an utterance's events if nothing else holds on to it.
+  liveUtterances.add(u);
+  let quietTicks = 0;
+  const watch = setInterval(() => {
+    const voice = window.speechSynthesis;
+    quietTicks = voice.speaking || voice.pending ? 0 : quietTicks + 1;
+    if (quietTicks >= 2) finish();
+  }, 400);
   const step = () => {
-    if (fired) return;
+    if (fired || ended) return;
     spans.forEach(s => s.classList.remove('hl'));
     if (i >= spans.length) return;
     const w = spans[i++];
