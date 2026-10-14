@@ -63,9 +63,24 @@
     var bar = document.createElement('div');
     bar.className = 'share-banner';
     bar.textContent = '👀 Shared preview — no sign-in, and nothing is saved or sent to Mr. O';
-    bar.style.cssText = 'position:sticky;top:0;z-index:9999;padding:8px 14px;background:#fff3cd;' +
-      'border-bottom:2px solid #ffc107;color:#856404;font:bold 15px/1.4 system-ui,sans-serif;text-align:center;';
+    /* Pinned across the very top of the screen. It is taken out of the page's own layout on purpose:
+       some sites lay <body> out as a row or pad it, and a banner placed "first in the page" then lands
+       beside the content or inset from the edges. The page is pushed down by the banner's height. */
+    bar.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;box-sizing:border-box;margin:0;' +
+      'padding:8px 14px;background:#fff3cd;border-bottom:2px solid #ffc107;color:#856404;' +
+      'font:bold 15px/1.4 system-ui,sans-serif;text-align:center;';
     document.body.insertBefore(bar, document.body.firstChild);
+    /* The reading sites keep the story panel stuck 14px from the top while the questions scroll;
+       it has to stick below the banner instead of under it. */
+    var stuck = document.createElement('style');
+    document.head.appendChild(stuck);
+    var makeRoom = function () {
+      var h = bar.offsetHeight;
+      document.documentElement.style.paddingTop = h + 'px';
+      stuck.textContent = '.story-panel { top: ' + (h + 14) + 'px !important; }';
+    };
+    makeRoom();
+    window.addEventListener('resize', makeRoom);
     var each = function (selector, fn) { Array.prototype.forEach.call(document.querySelectorAll(selector), fn); };
     each('[onclick*="promptTeacherReview"]', function (el) { el.style.display = 'none'; });
 
