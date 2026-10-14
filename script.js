@@ -1521,6 +1521,7 @@ const app = {
     else if (pct >= 60) { letter = 'D'; msg = "Keep Practicing! 🔄"; }
 
     this.show('end-screen');
+    this._showAgainButton();
 
     const reviewNextBtn = document.getElementById('review-next-btn');
     if (reviewNextBtn) reviewNextBtn.classList.toggle('hidden', !reviewMode);
@@ -1816,7 +1817,33 @@ const app = {
     w.print();
   },
 
-  /* ── END SCREEN ACTIONS ── */
+  /* ── END SCREEN ACTIONS ──
+     Marcos 10/14: the buttons say where they go. "Back to My Activities" keeps
+     the student signed in; "Do This Activity Again" starts the same one (while a
+     try is left); only "Sign Out" goes back to the very beginning. */
+  backToMenu() {
+    if (!this.studentName) { this.restart(); return; }
+    this.tryAgain();
+  },
+
+  doAgain() {
+    stopConfetti();
+    if (!this.studentName || !this.currentSection) { this.restart(); return; }
+    this.attemptStart(this.currentSection);
+  },
+
+  // "Do This Activity Again" only shows while a try is left (a visitor always has one).
+  _showAgainButton() {
+    const btn  = document.getElementById('again-btn');
+    const note = document.getElementById('again-note');
+    if (!btn || !note) return;
+    const used = getSectionAttempts(this.studentName)[this.currentSection] || 0;
+    const left = SHARE_MODE || reviewMode ? 1 : Math.max(0, 2 - used);
+    btn.classList.toggle('hidden', left === 0);
+    note.classList.toggle('hidden', left !== 0);
+    note.textContent = left === 0 ? '✅ You used both tries for this activity. Go back to your activities to pick another one.' : '';
+  },
+
   tryAgain() {
     stopConfetti();
     this.timerSeconds = 0;

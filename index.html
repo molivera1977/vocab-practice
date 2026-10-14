@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wonders Vocabulary Practice</title>
-  <link rel="stylesheet" href="style.css?v=vp8-name" />
+  <link rel="stylesheet" href="style.css?v=vp11-menu" />
 </head>
 <body>
 <canvas id="confetti-canvas"></canvas>
@@ -299,8 +299,12 @@
       <div id="missed-items"></div>
     </div>
     <div class="end-btns">
-      <button class="start-btn" onclick="app.tryAgain()">🔄 Try Again</button>
-      <button class="start-btn" style="background:#27ae60;box-shadow:0 5px 0 #1e8449;" onclick="app.restart()">🏠 Home</button>
+      <button class="start-btn" onclick="app.backToMenu()">📋 Back to My Activities</button>
+      <button class="start-btn" id="again-btn" style="background:#27ae60;box-shadow:0 5px 0 #1e8449;" onclick="app.doAgain()">🔄 Do This Activity Again</button>
+    </div>
+    <p id="again-note" class="again-note hidden"></p>
+    <div style="text-align:center;margin-top:14px;">
+      <button class="signout-btn" onclick="app.restart()">🚪 Sign Out (only when you are all done)</button>
     </div>
     <div id="review-next-btn" class="hidden" style="text-align:center;margin-top:12px;">
       <button class="start-btn" style="background:#8e44ad;box-shadow:0 5px 0 #6c3483;" onclick="app._showReviewPicker()">🔍 Review Another Activity</button>
@@ -335,7 +339,7 @@
       </div>
     </div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-      <button class="action-btn" style="background:#7f8c8d;box-shadow:0 4px 0 #566573;" onclick="app.restart()">🏠 Home</button>
+      <button class="action-btn" style="background:#7f8c8d;box-shadow:0 4px 0 #566573;" onclick="app.backToMenu()">📋 Back to My Activities</button>
     </div>
     <div id="teacher-score-btns" style="display:none;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;">
       <button class="action-btn" style="background:#c0392b;box-shadow:0 4px 0 #922b21;" onclick="app.clearScores()">🗑️ Clear History</button>
@@ -365,6 +369,6 @@
 
 <script src="share.js?v=3"></script>
 <script src="data/stories.js?v=2"></script>
-<script src="script.js?v=vp10-hl2"></script>
+<script src="script.js?v=vp11-menu"></script>
 </body>
 </html>

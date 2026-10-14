@@ -782,3 +782,9 @@ body.comp-active .container { max-width: 1160px; }
 .lc-say { font-size:1.3rem; margin:14px 0; }
 #lc-next:disabled { opacity:0.45; cursor:not-allowed; }
 @media (max-width:600px) { .lc-row .lc-line, .lc-say { font-size:1.15rem; } }
+
+/* End screen: the sign-out choice is quieter than the two main buttons */
+.signout-btn { background:none; border:2px solid #ccc; border-radius:10px; color:#666; font-family:inherit;
+               font-size:0.95rem; font-weight:700; padding:8px 16px; cursor:pointer; }
+.signout-btn:hover { border-color:#999; color:#333; }
+.again-note { text-align:center; color:#555; font-size:1rem; margin:10px 0 0; }
