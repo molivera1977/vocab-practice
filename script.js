@@ -289,7 +289,8 @@ function addHighlightFallback(u, spans) {
   u.onboundary = e => { if (e.name === 'word' && !fired) { fired = true; clearTimeout(hlTimer); } if (prevB) prevB(e); };
   // The end of the speech always stops the highlight, however the voice reports it:
   // a normal end, an error or cancel, or (some Chromebook voices) no event at all,
-  // which the watch below catches by seeing the voice has gone quiet.
+  // which the watch below catches by seeing the voice go quiet AFTER it started.
+  // A voice that never starts is left alone: the page's own no-sound wait handles that.
   const finish = e => {
     if (ended) return;
     ended = true;
@@ -303,10 +304,13 @@ function addHighlightFallback(u, spans) {
   u.onerror = finish;
   // Chrome can drop an utterance's events if nothing else holds on to it.
   liveUtterances.add(u);
-  let quietTicks = 0;
+  let started = false, quietTicks = 0;
+  const prevS = u.onstart;
+  u.onstart = e => { started = true; if (prevS) prevS(e); };
   const watch = setInterval(() => {
     const voice = window.speechSynthesis;
-    quietTicks = voice.speaking || voice.pending ? 0 : quietTicks + 1;
+    if (voice.speaking) { started = true; quietTicks = 0; return; }
+    quietTicks = started && !voice.pending ? quietTicks + 1 : 0;
     if (quietTicks >= 2) finish();
   }, 400);
   const step = () => {
