@@ -635,8 +635,8 @@ const app = {
 
   /* Shared preview: no roster, no student number — straight to the parts. */
   _shareSignIn() {
-    loggedInName     = 'Visitor';
-    this.studentName = 'Visitor';
+    loggedInName     = 'Guest';
+    this.studentName = 'Guest';
     const loginCard = document.getElementById('login-step-card');
     if (loginCard) loginCard.classList.add('hidden');
     const select = document.getElementById('section-select');
@@ -1500,7 +1500,7 @@ const app = {
     if (reviewNextBtn) reviewNextBtn.classList.toggle('hidden', !reviewMode);
 
     document.getElementById('final-score-sub').textContent = SHARE_MODE
-      ? `${SECTION_LABELS[this.currentSection]} · Shared preview — this score was not saved`
+      ? `${SECTION_LABELS[this.currentSection]} · Guest view — this score was not saved`
       : `${SECTION_LABELS[this.currentSection]} · Attempt ${attemptNum} · ${this.studentName}`;
     document.getElementById('final-msg').textContent = msg;
 

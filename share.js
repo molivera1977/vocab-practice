@@ -62,13 +62,14 @@
   var dress = function () {
     var bar = document.createElement('div');
     bar.className = 'share-banner';
-    bar.textContent = '👀 Shared preview — no sign-in, and nothing is saved or sent to Mr. O';
+    bar.textContent = '👀 Guest view · your results show at the end · nothing is saved or sent to Mr. O';
     /* Pinned across the very top of the screen. It is taken out of the page's own layout on purpose:
        some sites lay <body> out as a row or pad it, and a banner placed "first in the page" then lands
        beside the content or inset from the edges. The page is pushed down by the banner's height. */
+    /* Kept quiet on purpose (Marcos 10/13: "less noticeable"): a slim, muted strip, not a warning bar. */
     bar.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;box-sizing:border-box;margin:0;' +
-      'padding:8px 14px;background:#fff3cd;border-bottom:2px solid #ffc107;color:#856404;' +
-      'font:bold 15px/1.4 system-ui,sans-serif;text-align:center;';
+      'padding:3px 12px;background:#f3f4f6;border-bottom:1px solid #e5e7eb;color:#6b7280;' +
+      'font:normal 12px/1.5 system-ui,sans-serif;text-align:center;letter-spacing:0.01em;';
     document.body.insertBefore(bar, document.body.firstChild);
     /* The reading sites keep the story panel stuck 14px from the top while the questions scroll;
        it has to stick below the banner instead of under it. */
@@ -91,8 +92,8 @@
       note.className = 'share-note';
       note.style.cssText = 'background:#fff3cd;border:2px solid #ffc107;border-radius:12px;padding:12px 16px;' +
         'margin-bottom:16px;color:#856404;font-size:0.95rem;line-height:1.6;';
-      note.innerHTML = '<strong>For visitors:</strong> the directions below are what students see. ' +
-        'In this shared preview there is no sign-in, every part is open, and you can take anything as many ' +
+      note.innerHTML = '<strong>For guests:</strong> the directions below are what students see. ' +
+        'In this guest view there is no sign-in, every part is open, and you can take anything as many ' +
         'times as you like. Written answers are optional and are not sent. The results page at the end ' +
         'shows the correct answers.';
       var heading = directions.querySelector('h2');
@@ -105,8 +106,16 @@
     });
     each('#form-select-section .score-btn', function (el) { el.parentElement.style.display = 'none'; });
 
+    /* A greeting that says "Your practice is saved for Mr. O" is not true for a visitor.
+       The name element stays (the site writes the name into it); only the words after it change. */
+    var who = document.getElementById('student-name-display');
+    if (who && who.parentElement) {
+      while (who.nextSibling) who.parentElement.removeChild(who.nextSibling);
+      who.parentElement.appendChild(document.createTextNode('! Nothing is saved in this guest view.'));
+    }
+
     var writtenNote = document.getElementById('written-teacher-note');
-    if (writtenNote) writtenNote.textContent = '👀 Shared preview — written answers are optional and are not sent.';
+    if (writtenNote) writtenNote.textContent = '👀 Guest view — written answers are optional and are not sent.';
   };
   if (document.body) dress(); else document.addEventListener('DOMContentLoaded', dress);
 })();
