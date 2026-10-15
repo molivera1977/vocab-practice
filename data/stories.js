@@ -631,5 +631,896 @@ window.STORIES = [
     ]
    }
   ]
+ },
+ {
+  "id": "awoc",
+  "num": 2,
+  "title": "A World of Change",
+  "cover": "assets/covers/awoc.webp",
+  "lists": [
+   {
+    "n": 1,
+    "words": [
+     {
+      "word": "constant",
+      "beats": "con-stant",
+      "definition": "Going on all the time without stopping.",
+      "sentence": "The constant hum of the refrigerator was easy to ignore after a while."
+     },
+     {
+      "word": "natural",
+      "beats": "nat-u-ral",
+      "definition": "Made by nature, not by people.",
+      "sentence": "A rainbow is a natural sight that happens without any help from people."
+     },
+     {
+      "word": "alter",
+      "beats": "al-ter",
+      "definition": "To change something.",
+      "sentence": "She decided to alter her drawing by adding more color to it."
+     },
+     {
+      "word": "surface",
+      "beats": "sur-face",
+      "definition": "The top or outside part of something.",
+      "sentence": "Water droplets rolled off the smooth surface of the table."
+     },
+     {
+      "word": "effect",
+      "beats": "ef-fect",
+      "definition": "What happens because of something else.",
+      "sentence": "Not getting enough sleep can have a bad effect on your mood."
+     },
+     {
+      "word": "weathering",
+      "beats": "weath-er-ing",
+      "definition": "When rain, snow, sun, and wind break rocks into smaller pieces.",
+      "sentence": "After years of weathering, the old statue's face became smooth and hard to see."
+     },
+     {
+      "word": "erosion",
+      "beats": "e-ro-sion",
+      "definition": "When broken pieces of rock are carried away by water, wind, or ice.",
+      "sentence": "Erosion along the riverbank caused some of the soil to wash away."
+     },
+     {
+      "word": "deposition",
+      "beats": "dep-o-si-tion",
+      "definition": "When dirt and rocks are dropped in a new place.",
+      "sentence": "The river slowed down and dropped the sand it was carrying, and that deposition built up a small beach."
+     },
+     {
+      "word": "process",
+      "beats": "proc-ess",
+      "definition": "A set of steps that make something happen.",
+      "sentence": "Baking bread is a process that includes mixing, kneading, and baking."
+     },
+     {
+      "word": "landform",
+      "beats": "land-form",
+      "definition": "A shape on Earth's surface, like a hill, a canyon, or a sand dune.",
+      "sentence": "A valley is a landform that dips low between two mountains."
+     },
+     {
+      "word": "collapse",
+      "beats": "col-lapse",
+      "definition": "To fall down or cave in.",
+      "sentence": "The tower of blocks began to collapse after Jake bumped the table."
+     },
+     {
+      "word": "substantial",
+      "beats": "sub-stan-tial",
+      "definition": "Big in size or amount.",
+      "sentence": "The bakery made a substantial amount of bread to feed the whole town."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "a sneeze that is over fast",
+       "a fan that runs all day and all night"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a river in the woods",
+       "a brick wall"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "cutting long pants into shorts",
+       "leaving the pants just as they are"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "the very middle of an apple",
+       "the top of the water in a pool"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a wet sidewalk after the rain",
+       "a cloud far away in the sky"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "building a sandcastle",
+       "wind and rain cracking an old rock"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a rock sitting still for years",
+       "wind blowing dirt off a bare field"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "wind piling sand into a dune",
+       "wind picking up sand"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "one quick clap",
+       "the steps for growing a plant from a seed"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a hill",
+       "a cloud"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a sandcastle falling down",
+       "a tall tower standing strong"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "one crumb",
+       "a whole pile of firewood"
+      ],
+      "answer": 1
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "The constant ticking of the clock went on all night long.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The plastic toy car is a natural thing that grew in the forest.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Kai did not alter his plan, so he changed every part of it.",
+      "answer": "No"
+     },
+     {
+      "sentence": "A thin layer of ice covered the surface of the pond.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "One effect of the hot sun was that the snowman melted.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Weathering made the small pebbles join together into one giant new rock.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The ocean waves caused erosion that carried sand away from the beach.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Deposition happened when the river picked up the sand and carried it far away.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Making a paper airplane is a process with several steps.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "A sandwich is a landform that you can eat for lunch.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The strong new bridge began to collapse, so it stood perfectly still and safe.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The storm left a substantial pile of snow that was taller than my dad.",
+      "answer": "Yes"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "The puppy’s barking was constant, so it",
+      "choices": [
+       "never stopped.",
+       "lasted one second."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The pond is natural, so it was",
+      "choices": [
+       "built by a company.",
+       "made by nature."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Dad had to alter the costume because it was",
+      "choices": [
+       "a perfect fit.",
+       "too long."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Leaves floated on the surface of the lake, so they were",
+      "choices": [
+       "on top of the water.",
+       "at the very bottom."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "One effect of the windy day was that",
+      "choices": [
+       "the sky had a name.",
+       "the kites flew high."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "After years of weathering, the stone steps",
+      "choices": [
+       "had cracks and chips.",
+       "looked brand new."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Erosion from the waves made the beach",
+      "choices": [
+       "smaller.",
+       "taller."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "When the flood water went away, deposition",
+      "choices": [
+       "carried the mud far off.",
+       "left mud all over the yard."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Washing clothes is a process, so it",
+      "choices": [
+       "takes several steps.",
+       "happens all at once."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The tall hill is a landform, so it is",
+      "choices": [
+       "a kind of weather.",
+       "a shape on Earth’s surface."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The old roof might collapse, so the workers",
+      "choices": [
+       "kept everyone away.",
+       "had a party under it."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The farmer grew a substantial crop of corn, so he had",
+      "choices": [
+       "only one ear.",
+       "a huge amount."
+      ],
+      "answer": 1
+     }
+    ]
+   },
+   {
+    "n": 2,
+    "words": [
+     {
+      "word": "although",
+      "beats": "al-though",
+      "definition": "Even though.",
+      "sentence": "Although it was raining outside, we still went to recess."
+     },
+     {
+      "word": "hazard",
+      "beats": "haz-ard",
+      "definition": "Something that can hurt you.",
+      "sentence": "Loose wires on the floor can be a hazard if someone trips over them."
+     },
+     {
+      "word": "community",
+      "beats": "com-mu-ni-ty",
+      "definition": "The people who live in the same area.",
+      "sentence": "Everyone in our community came together to clean up the park after the storm."
+     },
+     {
+      "word": "structure",
+      "beats": "struc-ture",
+      "definition": "Something people build, like a wall.",
+      "sentence": "A doghouse is a small structure built to give a pet shelter."
+     },
+     {
+      "word": "unfortunate",
+      "beats": "un-for-tu-nate",
+      "definition": "Unlucky or sad.",
+      "sentence": "It was unfortunate that the picnic got rained out at the last minute."
+     },
+     {
+      "word": "destruction",
+      "beats": "de-struc-tion",
+      "definition": "Damage so bad that something is ruined.",
+      "sentence": "The hurricane caused a lot of destruction to the houses near the beach."
+     },
+     {
+      "word": "eruption",
+      "beats": "e-rup-tion",
+      "definition": "When a volcano bursts open and hot rock and ash come out.",
+      "sentence": "Ash and glowing rock shot high into the sky during the volcano's eruption."
+     },
+     {
+      "word": "landslide",
+      "beats": "land-slide",
+      "definition": "When rocks and dirt slide down a hill or mountain.",
+      "sentence": "After days of heavy rain, a landslide covered the mountain road with mud and rocks."
+     },
+     {
+      "word": "pressure",
+      "beats": "pres-sure",
+      "definition": "A strong push on something.",
+      "sentence": "Squeezing the sides of an empty water bottle puts pressure on the plastic and makes it bend."
+     },
+     {
+      "word": "warning",
+      "beats": "warn-ing",
+      "definition": "A message that tells you danger is coming.",
+      "sentence": "The dark clouds were a warning that a storm was coming soon."
+     },
+     {
+      "word": "potential",
+      "beats": "po-ten-tial",
+      "definition": "The chance that something could happen.",
+      "sentence": "A seed has the potential to grow into a tall tree someday."
+     },
+     {
+      "word": "crisis",
+      "beats": "cri-sis",
+      "definition": "A dangerous time when people must act fast.",
+      "sentence": "Running out of clean water during a drought can turn into a crisis."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "even though",
+       "right after"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a soft blanket",
+       "a broken glass on the floor"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "one empty chair",
+       "the people who live in our town"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a tall tower made of steel",
+       "a puddle"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "winning a prize",
+       "losing your lunch money"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a flood ruining many houses",
+       "a new house being built"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "lava bursting out of a volcano",
+       "a calm, quiet lake"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "snow falling softly",
+       "mud and rocks sliding down a hill"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "squeezing a lemon hard",
+       "looking at a lemon"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a thank-you card",
+       "a sign that says “Danger! Thin ice!”"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "something that already happened",
+       "a chance that something could happen"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a fire spreading through the school",
+       "a quiet afternoon at home"
+      ],
+      "answer": 0
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "Although the test was hard, Tia did her best.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The soft pillow on the bed is a big hazard.",
+      "answer": "No"
+     },
+     {
+      "sentence": "My community is just me, alone in my room.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The tree house is a strong structure that Dad built.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "It was unfortunate that the field trip was canceled.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The gentle breeze caused great destruction to the town.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Lava poured down the mountain during the eruption.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "A landslide is when rocks and mud slide up a hill toward the sky.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Push the button with a lot of pressure to make it work.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The warning came after the storm was already over.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The young puppy has the potential to become a great helper dog.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Finding a shiny penny on the sidewalk was a terrible crisis.",
+      "answer": "No"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "Although Sam was scared of the dark, he",
+      "choices": [
+       "ran away from the dark room.",
+       "walked into the dark room to get his book."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The icy steps were a hazard, so Mom",
+      "choices": [
+       "put salt on them.",
+       "told us to run on them."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Our whole community came together to",
+      "choices": [
+       "build a new playground.",
+       "hide from each other."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The bridge is a structure that",
+      "choices": [
+       "grew out of the river.",
+       "workers built across the river."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "It was unfortunate that the bus broke down, so we",
+      "choices": [
+       "were late to the zoo.",
+       "got there early."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The tornado caused destruction, so many houses",
+      "choices": [
+       "looked brand new.",
+       "were badly damaged."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "During the eruption, the volcano",
+      "choices": [
+       "stayed cold and quiet.",
+       "shot out ash and lava."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The landslide sent rocks rolling down the hill, so the hikers",
+      "choices": [
+       "had to find another trail.",
+       "kept walking on the same path through the rocks."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The tire had too much pressure inside, so it",
+      "choices": [
+       "went flat and soft.",
+       "was ready to pop."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The weather report gave a storm warning, so we",
+      "choices": [
+       "got ready early.",
+       "did not know about it."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Dark clouds have the potential to",
+      "choices": [
+       "make it a sunny day.",
+       "bring rain."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "When the power went out in the hospital, it was a crisis, so the workers",
+      "choices": [
+       "acted fast.",
+       "took a long nap."
+      ],
+      "answer": 0
+     }
+    ]
+   },
+   {
+    "n": 3,
+    "words": [
+     {
+      "word": "loosen",
+      "beats": "loos-en",
+      "definition": "To make something less tight.",
+      "sentence": "Turning the wrench to the left will loosen the bolt."
+     },
+     {
+      "word": "severe",
+      "beats": "se-vere",
+      "definition": "Very bad or very serious.",
+      "sentence": "A severe storm can knock down trees and power lines."
+     },
+     {
+      "word": "contrast",
+      "beats": "con-trast",
+      "definition": "A difference between two things.",
+      "sentence": "There is a clear contrast between a hot summer day and a cold winter night."
+     },
+     {
+      "word": "prevent",
+      "beats": "pre-vent",
+      "definition": "To stop something from happening.",
+      "sentence": "Wearing a seatbelt can help prevent injuries in a car accident."
+     },
+     {
+      "word": "disaster",
+      "beats": "dis-as-ter",
+      "definition": "Something that happens and causes great harm.",
+      "sentence": "The earthquake destroyed hundreds of homes, and people called it a terrible disaster."
+     },
+     {
+      "word": "event",
+      "beats": "e-vent",
+      "definition": "Something that happens.",
+      "sentence": "A birthday party is a fun event that people celebrate every year."
+     },
+     {
+      "word": "unpredictable",
+      "beats": "un-pre-dict-a-ble",
+      "definition": "Not able to be known before it happens.",
+      "sentence": "The weather in spring can be unpredictable, changing from sun to rain quickly."
+     },
+     {
+      "word": "evacuate",
+      "beats": "e-vac-u-ate",
+      "definition": "To leave a dangerous place and go somewhere safe.",
+      "sentence": "When there is a fire, everyone must evacuate the building right away."
+     },
+     {
+      "word": "gradual",
+      "beats": "grad-u-al",
+      "definition": "Happening slowly over a long time.",
+      "sentence": "A caterpillar's gradual change into a butterfly happens step by step inside its cocoon."
+     },
+     {
+      "word": "swift",
+      "beats": "swift",
+      "definition": "Very fast.",
+      "sentence": "The swift runner crossed the finish line before anyone else."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "tying your shoes tighter",
+       "making your belt less tight"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a fever so high you go to the hospital",
+       "a tiny scratch"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a black cat next to white snow",
+       "two red apples that look the same"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "letting the dog run into the street",
+       "closing the gate so the dog can’t get out"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a fire that burns a whole forest",
+       "a fun day at the beach"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a pencil",
+       "a school field day"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "the sun rising in the morning",
+       "a coin flip landing heads or tails"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "leaving town before a big storm hits",
+       "staying in bed all morning"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a plant growing a little each day",
+       "a balloon popping"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a snail crawling",
+       "a cheetah running"
+      ],
+      "answer": 1
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "Dad used pliers to loosen the stuck lid on the jar.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The severe storm was so gentle that nobody noticed it.",
+      "answer": "No"
+     },
+     {
+      "sentence": "There is a big contrast between the hot desert and the cold snow.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Brushing your teeth can prevent cavities, so it gives you more of them.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Getting a new puppy for my birthday was a disaster that hurt the whole town.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The town parade is a fun event that happens every July.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The weather in the mountains is unpredictable, so pack a raincoat and sunscreen.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "When the volcano started to erupt, the town decided to evacuate by staying right where they were.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The gradual change from summer to fall happens a little at a time.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The swift turtle took all day to cross the road.",
+      "answer": "No"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "My shoes were too tight, so I had to loosen",
+      "choices": [
+       "the laces.",
+       "the floor."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The cut was severe, so the nurse",
+      "choices": [
+       "ignored it.",
+       "called a doctor."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "In contrast to the noisy lunchroom, the library is",
+      "choices": [
+       "loud.",
+       "quiet."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "To prevent sunburn, Eva",
+      "choices": [
+       "wore sunscreen.",
+       "stayed in the sun all day without it."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The flood was a disaster because it",
+      "choices": [
+       "watered the flowers a little.",
+       "ruined many homes."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The big event at school was",
+      "choices": [
+       "the spring concert.",
+       "a blank piece of paper."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The game was unpredictable, so no one",
+      "choices": [
+       "was surprised at all.",
+       "knew who would win."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The police told people to evacuate, so they",
+      "choices": [
+       "left their homes.",
+       "stayed in their homes."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The gradual climb up the hill was",
+      "choices": [
+       "slow and easy.",
+       "sudden and steep."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The swift horse",
+      "choices": [
+       "walked slowly behind the others.",
+       "zoomed past everyone."
+      ],
+      "answer": 1
+     }
+    ]
+   }
+  ]
  }
 ];
