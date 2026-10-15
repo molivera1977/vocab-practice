@@ -213,7 +213,10 @@ function sectionBank(section) {
   if (!menu) return;
   menu.innerHTML = (window.STORIES || []).map(story => `
     <div class="vp-story">
-      <h3 class="vp-story-title">📖 ${escapeHtml(story.title)}</h3>
+      <div class="vp-story-head">
+        ${story.cover ? `<img class="vp-cover-img" src="${story.cover}?v=1" alt="Cover of ${escapeHtml(story.title)}">` : ''}
+        <h3 class="vp-story-title">${story.cover ? '' : '📖 '}${escapeHtml(story.title)}</h3>
+      </div>
       ${story.lists.map(list => `
         <div class="vp-list">
           <div class="vp-list-title">List ${list.n}</div>

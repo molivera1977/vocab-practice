@@ -789,3 +789,9 @@ body.comp-active .container { max-width: 1160px; }
 .signout-btn:hover { border-color:#999; color:#333; }
 .again-note { text-align:center; color:#555; font-size:1rem; margin:10px 0 0; }
 .signout-sub { display:block; font-size:0.8rem; font-weight:600; color:#888; margin-top:2px; }
+
+/* Each story's cover page sits next to its title (Marcos 10/14) */
+.vp-story-head { display:flex; align-items:center; gap:16px; margin:4px 0 12px; }
+.vp-story-head .vp-story-title { margin:0; font-size:1.6rem; }
+.vp-cover-img { width:96px; height:auto; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.18); flex-shrink:0; }
+@media (max-width:600px) { .vp-cover-img { width:72px; } .vp-story-head .vp-story-title { font-size:1.3rem; } }

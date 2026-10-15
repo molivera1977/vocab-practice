@@ -6,6 +6,7 @@ window.STORIES = [
   "id": "ts",
   "num": 1,
   "title": "The Talent Show",
+  "cover": "assets/covers/ts.webp",
   "lists": [
    {
     "n": 1,
