@@ -153,6 +153,7 @@ const ROSTER = [
   { name: "Pettway, Lanaura",          id: "10060616" },
   { name: "Polanco Soriano, Thiara",   id: "10060503" },
   { name: "Roberts, Robyn",            id: "10060925" },
+  { name: "Rodriguez-Jimenez, Marcos", id: "10048936" },
   { name: "Rojas, Alanie",             id: "10076388" },
   { name: "Sanchez Rodriguez, Johanelyz", id: "10076767" },
   { name: "Vega, Taishmara",           id: "10054043" },
