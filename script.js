@@ -1227,7 +1227,7 @@ const app = {
     sayLine(0);
   },
 
-  /* Just the word, said a little slower, as many times as the student wants */
+  /* Just the word, as many times as the student wants (0.82 like every read — Marcos 10/26: "set everything to 0.82") */
   speakWord(btn) {
     if (activeSpeakBtn === btn) { stopActiveSpeech(); return; }
     stopActiveSpeech();
@@ -1236,7 +1236,7 @@ const app = {
     if (!w) return;
     activeSpeakBtn = btn; btn.textContent = '⏹';
     const u = new SpeechSynthesisUtterance(w.word + '.');
-    u.lang = 'en-US'; u.rate = 0.75;
+    u.lang = 'en-US'; u.rate = READ_RATE;
     u.onend = () => { btn.textContent = '🔊'; if (activeSpeakBtn === btn) activeSpeakBtn = null; };
     window.speechSynthesis.speak(u);
   },
