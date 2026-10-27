@@ -3,6 +3,636 @@
    Do not edit by hand: change the content file, then run the tool again. */
 window.STORIES = [
  {
+  "id": "ds",
+  "num": 3,
+  "title": "Dollars and Sense",
+  "cover": "assets/covers/ds.webp",
+  "lists": [
+   {
+    "n": 1,
+    "words": [
+     {
+      "word": "desire",
+      "beats": "de-sire",
+      "definition": "A strong feeling of wanting something.",
+      "sentence": "Kim had a strong desire to learn to swim, so she asked for lessons every week."
+     },
+     {
+      "word": "bottom line",
+      "beats": "bot-tom line",
+      "definition": "How much money a business makes or loses in the end.",
+      "sentence": "The toy store's bottom line was good this year because it sold far more toys than it paid for."
+     },
+     {
+      "word": "compassionate",
+      "beats": "com-pas-sion-ate",
+      "definition": "Caring about others and wanting to help them when they are having a hard time.",
+      "sentence": "The compassionate nurse held the scared boy's hand and talked to him in a soft voice."
+     },
+     {
+      "word": "company",
+      "beats": "com-pa-ny",
+      "definition": "A business that makes or sells things to earn money.",
+      "sentence": "My aunt works for a company that makes bicycles and sells them to stores."
+     },
+     {
+      "word": "measure",
+      "beats": "meas-ure",
+      "definition": "To find out how big, how much, or how good something is.",
+      "sentence": "Our teacher uses a spelling test each Friday to measure how well we know our words."
+     },
+     {
+      "word": "routine",
+      "beats": "rou-tine",
+      "definition": "The usual things you do in the same way and order each time.",
+      "sentence": "Brushing my teeth and reading a book are part of my bedtime routine every night."
+     },
+     {
+      "word": "inventive",
+      "beats": "in-ven-tive",
+      "definition": "Full of new and clever ideas.",
+      "sentence": "The inventive girl turned an old shoebox and some string into a bird feeder."
+     },
+     {
+      "word": "undertaking",
+      "beats": "un-der-tak-ing",
+      "definition": "A big job or project that someone decides to do.",
+      "sentence": "Building a treehouse was a big undertaking that took my family the whole summer."
+     },
+     {
+      "word": "model",
+      "beats": "mod-el",
+      "definition": "To make something by copying the look of something else.",
+      "sentence": "The baker modeled the birthday cake on a real castle, so it had towers on every corner."
+     },
+     {
+      "word": "traditionally",
+      "beats": "tra-di-tion-al-ly",
+      "definition": "In the way that people have done something for a very long time.",
+      "sentence": "Traditionally, my family eats a big meal together on Thanksgiving, just as my grandparents did."
+     },
+     {
+      "word": "innovative",
+      "beats": "in-no-va-tive",
+      "definition": "Using a new idea or a new way of doing something.",
+      "sentence": "Our school tried an innovative idea and built a garden on the roof where kids grow vegetables."
+     },
+     {
+      "word": "expanded",
+      "beats": "ex-pand-ed",
+      "definition": "Grew bigger by adding more.",
+      "sentence": "The small library expanded and added a new room full of computers."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "wishing hard for a puppy",
+       "forgetting about a puppy"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "the line at the bottom of a page",
+       "the money a shop has at the end of the year"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "sharing your coat with a cold friend",
+       "laughing at a cold friend"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a tree in the park",
+       "a business that makes cereal"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "guessing how heavy a box is",
+       "weighing a box on a scale"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "brushing your teeth every night before bed",
+       "seeing a rainbow once"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "building a toy car out of old bottle caps",
+       "buying the same toy as everyone else"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "tying your shoe",
+       "cleaning out the whole garage"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "drawing a dog by looking at a real dog",
+       "drawing a dog without looking at anything"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "trying a brand-new game",
+       "playing the same game every holiday for years"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a new kind of shoe that lights up when you run",
+       "an old shoe like everyone else’s"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a puddle drying up",
+       "a park adding a new playground"
+      ],
+      "answer": 1
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "Lena had no desire to eat the cake, so she ate three big slices.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The pet shop’s bottom line got better after it sold more fish food than ever.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The compassionate girl sat with the new student who was eating lunch alone.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "A company is a kind of fruit that grows on tall trees.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The nurse will measure how tall you have grown since last year.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Feeding the dog is part of my routine, so I have never fed the dog.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The inventive boy never had a single new idea.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Writing a whole book is a big undertaking that can take many months.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "We will model our robot on a real dog, so it will look nothing like a dog.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Traditionally, our town lights a big tree in the park every December.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The innovative lunchbox keeps soup hot and juice cold at the same time.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The tiny store expanded, so now it is even smaller than before.",
+      "answer": "No"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "Max had a desire to be a chef, so he",
+      "choices": [
+       "never went into the kitchen.",
+       "practiced cooking with his dad."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The store’s bottom line was bad this year because it",
+      "choices": [
+       "spent more money than it made.",
+       "painted its walls blue."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The compassionate coach saw a player crying, so she",
+      "choices": [
+       "told the player to stop being silly.",
+       "asked the player what was wrong."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The toy company wanted to sell more games, so it",
+      "choices": [
+       "made a fun new game.",
+       "closed its doors forever."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "To measure how much water was in the bottle, Sam",
+      "choices": [
+       "poured it into a cup with numbers on the side.",
+       "drew a picture of it."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Reading before bed is part of Ana’s routine, so she",
+      "choices": [
+       "never reads at night.",
+       "reads every night before she sleeps."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The inventive girl had no glue, so she",
+      "choices": [
+       "gave up on her project.",
+       "used tape and string to hold it together."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Planting a garden for the whole town was a huge undertaking, so it",
+      "choices": [
+       "took many people and many days.",
+       "took one person one minute."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Kim wanted to model her costume on a real bee, so she",
+      "choices": [
+       "made it red and blue.",
+       "made it yellow with black stripes."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Traditionally, our family goes to the beach every summer, so this summer we will",
+      "choices": [
+       "go to the beach again.",
+       "stay away from the beach."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The innovative school bus was different because it",
+      "choices": [
+       "ran on sunlight instead of gas.",
+       "looked just like every other bus."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The soccer club expanded, so now it has",
+      "choices": [
+       "fewer players than before.",
+       "more teams and more players."
+      ],
+      "answer": 1
+     }
+    ]
+   },
+   {
+    "n": 2,
+    "words": [
+     {
+      "word": "pleased",
+      "beats": "pleased",
+      "definition": "Happy about something.",
+      "sentence": "Dad was pleased when I cleaned my room without being asked."
+     },
+     {
+      "word": "enterprise",
+      "beats": "en-ter-prise",
+      "definition": "A new project or business that someone starts.",
+      "sentence": "Selling homemade bracelets was Maya's new enterprise, and she hoped it would earn money for camp."
+     },
+     {
+      "word": "charity",
+      "beats": "char-i-ty",
+      "definition": "Money or help that is given to people in need.",
+      "sentence": "Our class collected canned food for charity to help families who do not have enough to eat."
+     },
+     {
+      "word": "motto",
+      "beats": "mot-to",
+      "definition": "A short saying that tells what a person or group believes.",
+      "sentence": "Our team's motto is \"Never give up,\" and we shout it before every game."
+     },
+     {
+      "word": "funds",
+      "beats": "funds",
+      "definition": "Money that is collected or saved for a special reason.",
+      "sentence": "The school sold cookies to raise funds for a new playground."
+     },
+     {
+      "word": "process",
+      "beats": "proc-ess",
+      "definition": "A set of steps that are done in a certain order.",
+      "sentence": "Planting a seed is a process: you dig a hole, drop in the seed, cover it, and water it."
+     },
+     {
+      "word": "design",
+      "beats": "de-sign",
+      "definition": "To plan and draw how something will look.",
+      "sentence": "Leo will design the class poster by planning where each picture and word will go."
+     },
+     {
+      "word": "location",
+      "beats": "lo-ca-tion",
+      "definition": "A place where something is.",
+      "sentence": "The pizza shop opened a new location near my school, so now there are two shops in town."
+     },
+     {
+      "word": "exceptional",
+      "beats": "ex-cep-tion-al",
+      "definition": "Much better than usual.",
+      "sentence": "Ava is an exceptional reader who finished every book in the class library."
+     },
+     {
+      "word": "foundation",
+      "beats": "foun-da-tion",
+      "definition": "A group that uses money to help people or a cause.",
+      "sentence": "A foundation gave money to the animal shelter so it could care for more dogs."
+     },
+     {
+      "word": "profit",
+      "beats": "prof-it",
+      "definition": "The money a business has left after it pays for everything.",
+      "sentence": "After paying for the flour and sugar, the bake sale made a profit of twenty dollars."
+     },
+     {
+      "word": "necessity",
+      "beats": "ne-ces-si-ty",
+      "definition": "Something that you must have or must do.",
+      "sentence": "A warm coat is a necessity when you live where it snows all winter."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "clapping after a great show",
+       "crying after losing a game"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "starting a business that sells cupcakes",
+       "watching TV all day"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "buying a toy for yourself",
+       "giving food to people who are hungry"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a whole chapter book",
+       "a short saying like “Do your best”"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "money a club saved to buy new books",
+       "a pile of leaves"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "sneezing once",
+       "the steps to make a paper snowflake"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "sketching how a new T-shirt will look",
+       "kicking a ball around"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "what time the movie starts",
+       "where the movie theater is"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a player who misses every shot",
+       "a player who is much better than the rest"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a group that pays for new parks in the city",
+       "a toy you play with"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "money you lost",
+       "the extra money a store keeps after paying its bills"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "water to drink",
+       "a new video game"
+      ],
+      "answer": 0
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "Grandpa was pleased when we came to visit him on his birthday.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Sleeping late on Saturday was my new enterprise to earn money.",
+      "answer": "No"
+     },
+     {
+      "sentence": "After the big storm, people gave food and water to charity to help families who lost their homes.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The fire station’s motto, “Always ready,” is painted on the big red truck.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "We had no funds left, so we bought everything we wanted at the store.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Building a sandcastle is a process, so you just do it all in one step.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Mia will design her new bedroom by drawing where the bed and desk will go.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The location of the party is three o’clock on Friday.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The exceptional painter’s pictures won first prize at the art show.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "A foundation is a sandwich that you eat for lunch.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The shop made a profit because it lost all of its money.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Air is a necessity because every person needs it to live.",
+      "answer": "Yes"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "The teacher was pleased with the class, so she",
+      "choices": [
+       "gave everyone a sticker.",
+       "frowned at everyone."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Leo’s enterprise was selling cookies, so after school he",
+      "choices": [
+       "took a nap.",
+       "baked cookies to sell."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The toy store gave toys to charity, so",
+      "choices": [
+       "kids in need got new toys.",
+       "the store kept all its toys."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The team’s motto is “Play fair,” so the players",
+      "choices": [
+       "cheat when no one is looking.",
+       "follow the rules."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The class raised funds for a trip, so now it can",
+      "choices": [
+       "stay at school all day.",
+       "pay for the bus to the museum."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Making pancakes is a process, so first you",
+      "choices": [
+       "mix the batter.",
+       "eat the pancakes."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Before sewing the quilt, Grandma will design it by",
+      "choices": [
+       "planning where each color will go.",
+       "throwing the cloth away."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The map shows the location of the zoo, so we",
+      "choices": [
+       "know how big the lions are.",
+       "know where to go."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Because Omar is an exceptional cook, his food",
+      "choices": [
+       "tastes better than most people’s.",
+       "always tastes burned."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The foundation wanted to help kids read, so it",
+      "choices": [
+       "closed the library.",
+       "gave books to schools."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The lemonade stand made a profit, so the kids",
+      "choices": [
+       "owed money to their mom.",
+       "had money left over to save."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Food is a necessity, so people",
+      "choices": [
+       "need it to live.",
+       "can live without it."
+      ],
+      "answer": 0
+     }
+    ]
+   }
+  ]
+ },
+ {
   "id": "ts",
   "num": 1,
   "title": "The Talent Show",
