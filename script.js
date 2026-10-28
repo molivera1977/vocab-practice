@@ -5,7 +5,7 @@
    timers, save and resume, time-keeping, share link and score sending.
    What is new here: the activity menu is built from the stories, and
    "Learn the Words" teaches four words on cards before asking about them.
-   Timers: 20s instructions lock · 12s read lock · 6s next soak
+   Timers: 15s instructions lock · 12s read lock · 6s next soak
    Game keys: vocab-<story>-l<list>-<learn|yesno|ending>
    Question ids: W/Y/E + story number + list number + word number (W1203)
    PIN: 9377 (Teacher override)
@@ -14,7 +14,7 @@
 /* ── CONFIG ─────────────────────────────────────────── */
 const REVIEW_OPEN   = true;    // false = students locked out; only Teacher Access works. Set true to open.
 const SHARE_MODE    = !!window.SHARE_MODE;   // set by share.js — a visitor's link, never a student's
-const INSTRUCT_SECS = 20;
+const INSTRUCT_SECS = 15;
 const READ_SECS     = 12;
 const NEXT_SECS     = 6;
 const STORAGE_KEY   = 'vocabp_session_v1';
@@ -1038,7 +1038,7 @@ const app = {
     if (el) el.textContent = `${m}:${s}`;
   },
 
-  /* ── INSTRUCTIONS LOCK (20s) ── */
+  /* ── INSTRUCTIONS LOCK (15s) ── */
   startInstructionsTimer() {
     if (this.instructInterval) { clearInterval(this.instructInterval); this.instructInterval = null; }
     const btn   = document.getElementById('ready-btn');
