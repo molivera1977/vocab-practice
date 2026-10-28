@@ -33,11 +33,14 @@ const SESSION_ID = (() => {
 const ACTIVITY_KINDS = [
   { kind: 'learn',  icon: '🎧', label: 'Learn the Words', sub: 'Hear it, say it, then pick' },
   { kind: 'yesno',  icon: '👍', label: 'Yes or No',       sub: 'Is the word used the right way?' },
-  { kind: 'ending', icon: '🧩', label: 'Pick the Ending', sub: 'Finish the sentence' }
+  { kind: 'ending', icon: '🧩', label: 'Pick the Ending', sub: 'Finish the sentence' },
+  // Marcos 10/27: a CLOZE for each list, Dollars and Sense and every story after it (only lists that have one)
+  { kind: 'cloze',  icon: '🔤', label: 'CLOZE',           sub: 'Pick the word that fits' }
 ];
 const CARD_GROUP = 4;   // Learn teaches this many words, asks about them, then teaches the next group
 const ACTIVITIES = {};
 (window.STORIES || []).forEach(story => story.lists.forEach(list => ACTIVITY_KINDS.forEach(a => {
+  if (a.kind === 'cloze' && !list.cloze) return;
   const key = `${story.id}-${list.n}-${a.kind}`;
   ACTIVITIES[key] = {
     key, story, list, kind: a.kind, icon: a.icon, sub: a.sub, short: a.label,
@@ -194,6 +197,16 @@ function sectionBank(section) {
       choices: it.choices, answer: it.answer
     }));
   }
+  if (act.kind === 'cloze') {
+    return act.list.cloze.map(it => {
+      const i = words.findIndex(w => w.word === it.word);
+      return {
+        id: 'C' + num(i), word: it.word,
+        q: `Which word fits in the blank?<br><span class="vp-sentence">${escapeHtml(it.sentence)}</span>`,
+        choices: it.choices, answer: it.answer
+      };
+    });
+  }
   if (act.kind === 'yesno') {
     return act.list.usedRight.map((it, i) => ({
       id: 'Y' + num(i), word: words[i].word, fixed: true,
@@ -222,7 +235,7 @@ function sectionBank(section) {
         <div class="vp-list">
           <div class="vp-list-title">List ${list.n}</div>
           <div class="start-grid">
-            ${ACTIVITY_KINDS.map(a => {
+            ${ACTIVITY_KINDS.filter(a => ACTIVITIES[`${story.id}-${list.n}-${a.kind}`]).map(a => {
               const key = `${story.id}-${list.n}-${a.kind}`;
               return `<button class="start-btn" id="btn-${key}" onclick="app.attemptStart('${key}')">${a.icon} ${a.label}<span class="form-btn-sub">${a.sub}</span></button>`;
             }).join('')}
@@ -403,7 +416,8 @@ function applyLocks(name) {
     if (!btn) return;
     const done = attempts[act.key];
     const sub  = btn.querySelector('.form-btn-sub');
-    if (done === 0)      { btn.classList.remove('locked'); sub.textContent = act.sub; }
+    if (act.story.released) { btn.classList.remove('locked'); sub.textContent = done ? '✅ Done · practice it again any time' : act.sub; }
+    else if (done === 0) { btn.classList.remove('locked'); sub.textContent = act.sub; }
     else if (done === 1) { btn.classList.remove('locked'); sub.textContent = '✅ Done once · 1 more try'; }
     else                 { btn.classList.add('locked');    sub.textContent = '🔒 2 of 2 tries used · ask Mr. O'; }
   });
@@ -767,7 +781,7 @@ const app = {
     const done     = attempts[section];
     const name1    = getFirstName(this.studentName);
 
-    if (done < 2 || unlockedSections.has(section)) {
+    if (done < 2 || unlockedSections.has(section) || ACTIVITIES[section].story.released) {
       this.startSession(section);
     } else {
       this.showPinModal(
@@ -887,6 +901,13 @@ const app = {
     const sectionSelect = document.getElementById('section-select');
     if (saved && rc) {
       const data = JSON.parse(saved);
+      const act = ACTIVITIES[data.currentSection];
+      if (!act || act.story.released) {   // an older story's activity (or one no longer on the site): let it go
+        localStorage.removeItem(STORAGE_KEY);
+        rc.classList.add('hidden');
+        if (sectionSelect && this.studentName) sectionSelect.classList.remove('hidden');
+        return;
+      }
       if (this.studentName && data.studentName === this.studentName) {
         rc.classList.remove('hidden');
         const qNum = Math.min(data.currentIndex + 1, data.currentBank.length);
@@ -1857,10 +1878,11 @@ const app = {
     const note = document.getElementById('again-note');
     if (!btn || !note) return;
     const used = getSectionAttempts(this.studentName)[this.currentSection] || 0;
-    const left = SHARE_MODE || reviewMode ? 1 : Math.max(0, 2 - used);
+    const free = SHARE_MODE || reviewMode || (ACTIVITIES[this.currentSection] && ACTIVITIES[this.currentSection].story.released);
+    const left = free ? 1 : Math.max(0, 2 - used);
     btn.classList.toggle('hidden', left === 0);
     const sub = document.getElementById('again-sub');
-    if (sub) sub.textContent = SHARE_MODE || reviewMode ? 'Start this one over.'
+    if (sub) sub.textContent = free ? 'Start this one over.'
       : `Start this one over. You have ${left} ${left === 1 ? 'try' : 'tries'} left.`;
     note.classList.toggle('hidden', left !== 0);
     note.textContent = left === 0 ? '✅ You used both tries for this activity. Go back to your activities to pick another one.' : '';

@@ -317,6 +317,128 @@ window.STORIES = [
       ],
       "answer": 1
      }
+    ],
+    "cloze": [
+     {
+      "sentence": "After reading about sharks, Omar had a __________ to visit the aquarium.",
+      "choices": [
+       "routine",
+       "desire",
+       "company"
+      ],
+      "answer": 1,
+      "word": "desire"
+     },
+     {
+      "sentence": "The pizza shop owner checked the __________ to see if the shop made money this month.",
+      "choices": [
+       "bottom line",
+       "undertaking",
+       "routine"
+      ],
+      "answer": 0,
+      "word": "bottom line"
+     },
+     {
+      "sentence": "The __________ crossing guard helped a crying first grader find her mom.",
+      "choices": [
+       "inventive",
+       "innovative",
+       "compassionate"
+      ],
+      "answer": 2,
+      "word": "compassionate"
+     },
+     {
+      "sentence": "The __________ that makes my favorite sneakers is hiring new workers.",
+      "choices": [
+       "desire",
+       "undertaking",
+       "company"
+      ],
+      "answer": 2,
+      "word": "company"
+     },
+     {
+      "sentence": "Grandma used a cup to __________ the flour for the pancakes.",
+      "choices": [
+       "measure",
+       "model",
+       "expanded"
+      ],
+      "answer": 0,
+      "word": "measure"
+     },
+     {
+      "sentence": "Every morning, my __________ is to make my bed, eat breakfast, and brush my hair.",
+      "choices": [
+       "desire",
+       "routine",
+       "bottom line"
+      ],
+      "answer": 1,
+      "word": "routine"
+     },
+     {
+      "sentence": "The __________ girl used old socks to make puppets for a show.",
+      "choices": [
+       "inventive",
+       "compassionate",
+       "routine"
+      ],
+      "answer": 0,
+      "word": "inventive"
+     },
+     {
+      "sentence": "Moving all the books to the new library was a big __________ that took the whole week.",
+      "choices": [
+       "routine",
+       "company",
+       "undertaking"
+      ],
+      "answer": 2,
+      "word": "undertaking"
+     },
+     {
+      "sentence": "The class will __________ their clay houses on real houses from long ago, with straw roofs.",
+      "choices": [
+       "expanded",
+       "model",
+       "measure"
+      ],
+      "answer": 1,
+      "word": "model"
+     },
+     {
+      "sentence": "In my family, we __________ open one present on the night before the holiday, like we have for years.",
+      "choices": [
+       "compassionate",
+       "traditionally",
+       "innovative"
+      ],
+      "answer": 1,
+      "word": "traditionally"
+     },
+     {
+      "sentence": "The __________ classroom chairs let kids bounce a little while they work, which no chairs did before.",
+      "choices": [
+       "compassionate",
+       "routine",
+       "innovative"
+      ],
+      "answer": 2,
+      "word": "innovative"
+     },
+     {
+      "sentence": "The small farm __________ and now grows corn, beans, and pumpkins.",
+      "choices": [
+       "expanded",
+       "measure",
+       "model"
+      ],
+      "answer": 0,
+      "word": "expanded"
+     }
     ]
    },
    {
@@ -628,6 +750,128 @@ window.STORIES = [
       ],
       "answer": 0
      }
+    ],
+    "cloze": [
+     {
+      "sentence": "The coach was __________ when the whole team showed up early for practice.",
+      "choices": [
+       "pleased",
+       "exceptional",
+       "foundation"
+      ],
+      "answer": 0,
+      "word": "pleased"
+     },
+     {
+      "sentence": "Baking and selling dog treats became Nia’s new __________, and she earned money every weekend.",
+      "choices": [
+       "motto",
+       "location",
+       "enterprise"
+      ],
+      "answer": 2,
+      "word": "enterprise"
+     },
+     {
+      "sentence": "The kids made sandwiches for __________ and gave them to people at the shelter.",
+      "choices": [
+       "profit",
+       "charity",
+       "process"
+      ],
+      "answer": 1,
+      "word": "charity"
+     },
+     {
+      "sentence": "Our class __________ is “We help each other,” and it hangs above the board.",
+      "choices": [
+       "motto",
+       "funds",
+       "necessity"
+      ],
+      "answer": 0,
+      "word": "motto"
+     },
+     {
+      "sentence": "The band did not have enough __________ to buy new drums, so it sold popcorn at the games.",
+      "choices": [
+       "location",
+       "funds",
+       "motto"
+      ],
+      "answer": 1,
+      "word": "funds"
+     },
+     {
+      "sentence": "Making a paper chain is a __________: cut the strips, loop one, then glue the next one through it.",
+      "choices": [
+       "necessity",
+       "profit",
+       "process"
+      ],
+      "answer": 2,
+      "word": "process"
+     },
+     {
+      "sentence": "Before building the robot, the team will __________ it by drawing every part on paper.",
+      "choices": [
+       "foundation",
+       "charity",
+       "design"
+      ],
+      "answer": 2,
+      "word": "design"
+     },
+     {
+      "sentence": "The new park’s __________ is right next to the fire station, so it is easy to find.",
+      "choices": [
+       "location",
+       "motto",
+       "enterprise"
+      ],
+      "answer": 0,
+      "word": "location"
+     },
+     {
+      "sentence": "The singer’s voice was so __________ that the whole crowd stood up and cheered.",
+      "choices": [
+       "pleased",
+       "exceptional",
+       "foundation"
+      ],
+      "answer": 1,
+      "word": "exceptional"
+     },
+     {
+      "sentence": "A __________ gave our town money to plant one hundred new trees.",
+      "choices": [
+       "foundation",
+       "process",
+       "necessity"
+      ],
+      "answer": 0,
+      "word": "foundation"
+     },
+     {
+      "sentence": "The school store paid ten dollars for pencils, sold them for thirty dollars, and kept a __________ of twenty dollars.",
+      "choices": [
+       "necessity",
+       "funds",
+       "profit"
+      ],
+      "answer": 2,
+      "word": "profit"
+     },
+     {
+      "sentence": "A flashlight is a __________ on a camping trip because it gets very dark at night.",
+      "choices": [
+       "enterprise",
+       "necessity",
+       "motto"
+      ],
+      "answer": 1,
+      "word": "necessity"
+     }
     ]
    }
   ]
@@ -637,6 +881,7 @@ window.STORIES = [
   "num": 1,
   "title": "The Talent Show",
   "cover": "assets/covers/ts.webp",
+  "released": true,
   "lists": [
    {
     "n": 1,
@@ -1267,6 +1512,7 @@ window.STORIES = [
   "num": 2,
   "title": "A World of Change",
   "cover": "assets/covers/awoc.webp",
+  "released": true,
   "lists": [
    {
     "n": 1,
