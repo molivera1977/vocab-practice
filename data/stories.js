@@ -14,72 +14,84 @@ window.STORIES = [
      {
       "word": "desire",
       "beats": "de-sire",
+      "pos": "noun",
       "definition": "A strong feeling of wanting something.",
       "sentence": "Kim had a strong desire to learn to swim, so she asked for lessons every week."
      },
      {
       "word": "bottom line",
       "beats": "bot-tom line",
+      "pos": "noun",
       "definition": "How much money a business makes or loses in the end.",
       "sentence": "The toy store's bottom line was good this year because it sold far more toys than it paid for."
      },
      {
       "word": "compassionate",
       "beats": "com-pas-sion-ate",
+      "pos": "adjective",
       "definition": "Caring about others and wanting to help them when they are having a hard time.",
       "sentence": "The compassionate nurse held the scared boy's hand and talked to him in a soft voice."
      },
      {
       "word": "company",
       "beats": "com-pa-ny",
+      "pos": "noun",
       "definition": "A business that makes or sells things to earn money.",
       "sentence": "My aunt works for a company that makes bicycles and sells them to stores."
      },
      {
       "word": "measure",
       "beats": "meas-ure",
+      "pos": "verb",
       "definition": "To find out how big, how much, or how good something is.",
       "sentence": "Our teacher uses a spelling test each Friday to measure how well we know our words."
      },
      {
       "word": "routine",
       "beats": "rou-tine",
+      "pos": "noun",
       "definition": "The usual things you do in the same way and order each time.",
       "sentence": "Brushing my teeth and reading a book are part of my bedtime routine every night."
      },
      {
       "word": "inventive",
       "beats": "in-ven-tive",
+      "pos": "adjective",
       "definition": "Full of new and clever ideas.",
       "sentence": "The inventive girl turned an old shoebox and some string into a bird feeder."
      },
      {
       "word": "undertaking",
       "beats": "un-der-tak-ing",
+      "pos": "noun",
       "definition": "A big job or project that someone decides to do.",
       "sentence": "Building a treehouse was a big undertaking that took my family the whole summer."
      },
      {
       "word": "model",
       "beats": "mod-el",
+      "pos": "verb",
       "definition": "To make something by copying the look of something else.",
       "sentence": "The baker modeled the birthday cake on a real castle, so it had towers on every corner."
      },
      {
       "word": "traditionally",
       "beats": "tra-di-tion-al-ly",
+      "pos": "adverb",
       "definition": "In the way that people have done something for a very long time.",
       "sentence": "Traditionally, my family eats a big meal together on Thanksgiving, just as my grandparents did."
      },
      {
       "word": "innovative",
       "beats": "in-no-va-tive",
+      "pos": "adjective",
       "definition": "Using a new idea or a new way of doing something.",
       "sentence": "Our school tried an innovative idea and built a garden on the roof where kids grow vegetables."
      },
      {
       "word": "expanded",
       "beats": "ex-pand-ed",
+      "pos": "verb",
       "definition": "Grew bigger by adding more.",
       "sentence": "The small library expanded and added a new room full of computers."
      }
@@ -447,72 +459,84 @@ window.STORIES = [
      {
       "word": "pleased",
       "beats": "pleased",
+      "pos": "adjective",
       "definition": "Happy about something.",
       "sentence": "Dad was pleased when I cleaned my room without being asked."
      },
      {
       "word": "enterprise",
       "beats": "en-ter-prise",
+      "pos": "noun",
       "definition": "A new project or business that someone starts.",
       "sentence": "Selling homemade bracelets was Maya's new enterprise, and she hoped it would earn money for camp."
      },
      {
       "word": "charity",
       "beats": "char-i-ty",
+      "pos": "noun",
       "definition": "Money or help that is given to people in need.",
       "sentence": "Our class collected canned food for charity to help families who do not have enough to eat."
      },
      {
       "word": "motto",
       "beats": "mot-to",
+      "pos": "noun",
       "definition": "A short saying that tells what a person or group believes.",
       "sentence": "Our team's motto is \"Never give up,\" and we shout it before every game."
      },
      {
       "word": "funds",
       "beats": "funds",
+      "pos": "noun",
       "definition": "Money that is collected or saved for a special reason.",
       "sentence": "The school sold cookies to raise funds for a new playground."
      },
      {
       "word": "process",
       "beats": "proc-ess",
+      "pos": "noun",
       "definition": "A set of steps that are done in a certain order.",
       "sentence": "Planting a seed is a process: you dig a hole, drop in the seed, cover it, and water it."
      },
      {
       "word": "design",
       "beats": "de-sign",
+      "pos": "verb",
       "definition": "To plan and draw how something will look.",
       "sentence": "Leo will design the class poster by planning where each picture and word will go."
      },
      {
       "word": "location",
       "beats": "lo-ca-tion",
+      "pos": "noun",
       "definition": "A place where something is.",
       "sentence": "The pizza shop opened a new location near my school, so now there are two shops in town."
      },
      {
       "word": "exceptional",
       "beats": "ex-cep-tion-al",
+      "pos": "adjective",
       "definition": "Much better than usual.",
       "sentence": "Ava is an exceptional reader who finished every book in the class library."
      },
      {
       "word": "foundation",
       "beats": "foun-da-tion",
+      "pos": "noun",
       "definition": "A group that uses money to help people or a cause.",
       "sentence": "A foundation gave money to the animal shelter so it could care for more dogs."
      },
      {
       "word": "profit",
       "beats": "prof-it",
+      "pos": "noun",
       "definition": "The money a business has left after it pays for everything.",
       "sentence": "After paying for the flour and sugar, the bake sale made a profit of twenty dollars."
      },
      {
       "word": "necessity",
       "beats": "ne-ces-si-ty",
+      "pos": "noun",
       "definition": "Something that you must have or must do.",
       "sentence": "A warm coat is a necessity when you live where it snows all winter."
      }
@@ -889,72 +913,84 @@ window.STORIES = [
      {
       "word": "grip",
       "beats": "grip",
+      "pos": "noun",
       "definition": "A tight hold on something.",
       "sentence": "Marcus kept a tight grip on the leash so his dog could not pull away."
      },
      {
       "word": "individual",
       "beats": "in-di-vid-u-al",
+      "pos": "noun",
       "definition": "One person alone, not a group.",
       "sentence": "The coach gave a medal to each individual on the team, so every single player got one."
      },
      {
       "word": "uncomfortably",
       "beats": "un-com-fort-a-bly",
+      "pos": "adverb",
       "definition": "In a way that does not feel good.",
       "sentence": "My new shoes were uncomfortably tight, and they pinched my toes all day."
      },
      {
       "word": "hesitated",
       "beats": "hes-i-tat-ed",
+      "pos": "verb",
       "definition": "Stopped for a moment before doing or saying something.",
       "sentence": "Lena hesitated at the edge of the diving board because she was not sure she wanted to jump."
      },
      {
       "word": "interrupt",
       "beats": "in-ter-rupt",
+      "pos": "verb",
       "definition": "To start talking before someone else is finished.",
       "sentence": "It is rude to interrupt someone by talking before that person is finished speaking."
      },
      {
       "word": "take charge",
       "beats": "take charge",
+      "pos": "verb",
       "definition": "To be the one who leads and decides what to do.",
       "sentence": "When the teacher stepped out, Nia decided to take charge and tell her group what to do next."
      },
      {
       "word": "resentful",
       "beats": "re-sent-ful",
+      "pos": "adjective",
       "definition": "Feeling upset because something does not seem fair.",
       "sentence": "Sam felt resentful because he did all the chores while his brother got to play."
      },
      {
       "word": "situation",
       "beats": "sit-u-a-tion",
+      "pos": "noun",
       "definition": "What is happening at a certain time.",
       "sentence": "Being lost in a big store without my mom was a scary situation."
      },
      {
       "word": "desperately",
       "beats": "des-per-ate-ly",
+      "pos": "adverb",
       "definition": "In a way that shows you want something very badly.",
       "sentence": "Mia desperately wanted the last ticket, so she ran all the way to the front of the line."
      },
      {
       "word": "inspiration",
       "beats": "in-spi-ra-tion",
+      "pos": "noun",
       "definition": "Something that gives you an idea.",
       "sentence": "The colorful sunset was the inspiration that gave Ana the idea for her painting."
      },
      {
       "word": "routine",
       "beats": "rou-tine",
+      "pos": "noun",
       "definition": "A set of moves that you practice and then perform.",
       "sentence": "The gymnast practiced every move of her routine until she could do it without a mistake."
      },
      {
       "word": "consider",
       "beats": "con-sid-er",
+      "pos": "verb",
       "definition": "To think carefully about something.",
       "sentence": "Dad said he would consider my idea and think about it before giving me an answer."
      }
@@ -1200,72 +1236,84 @@ window.STORIES = [
      {
       "word": "humiliated",
       "beats": "hu-mil-i-at-ed",
+      "pos": "adjective",
       "definition": "Feeling very embarrassed in front of other people.",
       "sentence": "Jake felt humiliated when he tripped and dropped his lunch tray in front of the whole cafeteria."
      },
      {
       "word": "carefully",
       "beats": "care-ful-ly",
+      "pos": "adverb",
       "definition": "In a way that pays close attention.",
       "sentence": "Eli carried the full glass carefully so that not one drop of juice would spill."
      },
      {
       "word": "respectful",
       "beats": "re-spect-ful",
+      "pos": "adjective",
       "definition": "Showing that you care about other people and their ideas.",
       "sentence": "The respectful students listened quietly while the visitor was speaking."
      },
      {
       "word": "accountable",
       "beats": "ac-count-a-ble",
+      "pos": "adjective",
       "definition": "Responsible for what you do.",
       "sentence": "If you break a window while playing ball, you are accountable and must help pay to fix it."
      },
      {
       "word": "advise",
       "beats": "ad-vise",
+      "pos": "verb",
       "definition": "To tell someone what you think he or she should do.",
       "sentence": "I advise you to bring an umbrella because it looks like it is going to rain."
      },
      {
       "word": "besides",
       "beats": "be-sides",
+      "pos": "adverb",
       "definition": "In addition to what was already said.",
       "sentence": "It is too cold to go outside, and besides, it is almost time for dinner."
      },
      {
       "word": "self-esteem",
       "beats": "self-es-teem",
+      "pos": "noun",
       "definition": "The good feeling you have about yourself.",
       "sentence": "Learning to ride her bike without help gave Rosa more self-esteem, and she felt proud of herself."
      },
      {
       "word": "curt",
       "beats": "curt",
+      "pos": "adjective",
       "definition": "Short and not friendly when speaking.",
       "sentence": "The tired clerk gave a curt answer of only one word and then turned away."
      },
      {
       "word": "worry",
       "beats": "wor-ry",
+      "pos": "verb",
       "definition": "To keep thinking that something bad might happen.",
       "sentence": "When the sky turns dark, I worry that a storm might ruin our picnic."
      },
      {
       "word": "describe",
       "beats": "de-scribe",
+      "pos": "verb",
       "definition": "To tell what someone or something is like.",
       "sentence": "Can you describe your lost dog by telling me its size and color?"
      },
      {
       "word": "surprise",
       "beats": "sur-prise",
+      "pos": "noun",
       "definition": "Something that you did not expect.",
       "sentence": "It was a surprise to find snow on the ground in the morning because no one expected it."
      },
      {
       "word": "stand up",
       "beats": "stand up",
+      "pos": "verb",
       "definition": "To speak up for yourself or for someone else.",
       "sentence": "Lily had to stand up for herself and tell her brother to stop taking her things."
      }
@@ -1520,72 +1568,84 @@ window.STORIES = [
      {
       "word": "constant",
       "beats": "con-stant",
+      "pos": "adjective",
       "definition": "Going on all the time without stopping.",
       "sentence": "The constant hum of the refrigerator was easy to ignore after a while."
      },
      {
       "word": "natural",
       "beats": "nat-u-ral",
+      "pos": "adjective",
       "definition": "Made by nature, not by people.",
       "sentence": "A rainbow is a natural sight that happens without any help from people."
      },
      {
       "word": "alter",
       "beats": "al-ter",
+      "pos": "verb",
       "definition": "To change something.",
       "sentence": "She decided to alter her drawing by adding more color to it."
      },
      {
       "word": "surface",
       "beats": "sur-face",
+      "pos": "noun",
       "definition": "The top or outside part of something.",
       "sentence": "Water droplets rolled off the smooth surface of the table."
      },
      {
       "word": "effect",
       "beats": "ef-fect",
+      "pos": "noun",
       "definition": "What happens because of something else.",
       "sentence": "Not getting enough sleep can have a bad effect on your mood."
      },
      {
       "word": "weathering",
       "beats": "weath-er-ing",
+      "pos": "noun",
       "definition": "When rain, snow, sun, and wind break rocks into smaller pieces.",
       "sentence": "After years of weathering, the old statue's face became smooth and hard to see."
      },
      {
       "word": "erosion",
       "beats": "e-ro-sion",
+      "pos": "noun",
       "definition": "When broken pieces of rock are carried away by water, wind, or ice.",
       "sentence": "Erosion along the riverbank caused some of the soil to wash away."
      },
      {
       "word": "deposition",
       "beats": "dep-o-si-tion",
+      "pos": "noun",
       "definition": "When dirt and rocks are dropped in a new place.",
       "sentence": "The river slowed down and dropped the sand it was carrying, and that deposition built up a small beach."
      },
      {
       "word": "process",
       "beats": "proc-ess",
+      "pos": "noun",
       "definition": "A set of steps that make something happen.",
       "sentence": "Baking bread is a process that includes mixing, kneading, and baking."
      },
      {
       "word": "landform",
       "beats": "land-form",
+      "pos": "noun",
       "definition": "A shape on Earth's surface, like a hill, a canyon, or a sand dune.",
       "sentence": "A valley is a landform that dips low between two mountains."
      },
      {
       "word": "collapse",
       "beats": "col-lapse",
+      "pos": "verb",
       "definition": "To fall down or cave in.",
       "sentence": "The tower of blocks began to collapse after Jake bumped the table."
      },
      {
       "word": "substantial",
       "beats": "sub-stan-tial",
+      "pos": "adjective",
       "definition": "Big in size or amount.",
       "sentence": "The bakery made a substantial amount of bread to feed the whole town."
      }
@@ -1831,72 +1891,84 @@ window.STORIES = [
      {
       "word": "although",
       "beats": "al-though",
+      "pos": "conjunction",
       "definition": "Even though.",
       "sentence": "Although it was raining outside, we still went to recess."
      },
      {
       "word": "hazard",
       "beats": "haz-ard",
+      "pos": "noun",
       "definition": "Something that can hurt you.",
       "sentence": "Loose wires on the floor can be a hazard if someone trips over them."
      },
      {
       "word": "community",
       "beats": "com-mu-ni-ty",
+      "pos": "noun",
       "definition": "The people who live in the same area.",
       "sentence": "Everyone in our community came together to clean up the park after the storm."
      },
      {
       "word": "structure",
       "beats": "struc-ture",
+      "pos": "noun",
       "definition": "Something people build, like a wall.",
       "sentence": "A doghouse is a small structure built to give a pet shelter."
      },
      {
       "word": "unfortunate",
       "beats": "un-for-tu-nate",
+      "pos": "adjective",
       "definition": "Unlucky or sad.",
       "sentence": "It was unfortunate that the picnic got rained out at the last minute."
      },
      {
       "word": "destruction",
       "beats": "de-struc-tion",
+      "pos": "noun",
       "definition": "Damage so bad that something is ruined.",
       "sentence": "The hurricane caused a lot of destruction to the houses near the beach."
      },
      {
       "word": "eruption",
       "beats": "e-rup-tion",
+      "pos": "noun",
       "definition": "When a volcano bursts open and hot rock and ash come out.",
       "sentence": "Ash and glowing rock shot high into the sky during the volcano's eruption."
      },
      {
       "word": "landslide",
       "beats": "land-slide",
+      "pos": "noun",
       "definition": "When rocks and dirt slide down a hill or mountain.",
       "sentence": "After days of heavy rain, a landslide covered the mountain road with mud and rocks."
      },
      {
       "word": "pressure",
       "beats": "pres-sure",
+      "pos": "noun",
       "definition": "A strong push on something.",
       "sentence": "Squeezing the sides of an empty water bottle puts pressure on the plastic and makes it bend."
      },
      {
       "word": "warning",
       "beats": "warn-ing",
+      "pos": "noun",
       "definition": "A message that tells you danger is coming.",
       "sentence": "The dark clouds were a warning that a storm was coming soon."
      },
      {
       "word": "potential",
       "beats": "po-ten-tial",
+      "pos": "noun",
       "definition": "The chance that something could happen.",
       "sentence": "A seed has the potential to grow into a tall tree someday."
      },
      {
       "word": "crisis",
       "beats": "cri-sis",
+      "pos": "noun",
       "definition": "A dangerous time when people must act fast.",
       "sentence": "Running out of clean water during a drought can turn into a crisis."
      }
@@ -2142,60 +2214,70 @@ window.STORIES = [
      {
       "word": "loosen",
       "beats": "loos-en",
+      "pos": "verb",
       "definition": "To make something less tight.",
       "sentence": "Turning the wrench to the left will loosen the bolt."
      },
      {
       "word": "severe",
       "beats": "se-vere",
+      "pos": "adjective",
       "definition": "Very bad or very serious.",
       "sentence": "A severe storm can knock down trees and power lines."
      },
      {
       "word": "contrast",
       "beats": "con-trast",
+      "pos": "noun",
       "definition": "A difference between two things.",
       "sentence": "There is a clear contrast between a hot summer day and a cold winter night."
      },
      {
       "word": "prevent",
       "beats": "pre-vent",
+      "pos": "verb",
       "definition": "To stop something from happening.",
       "sentence": "Wearing a seatbelt can help prevent injuries in a car accident."
      },
      {
       "word": "disaster",
       "beats": "dis-as-ter",
+      "pos": "noun",
       "definition": "Something that happens and causes great harm.",
       "sentence": "The earthquake destroyed hundreds of homes, and people called it a terrible disaster."
      },
      {
       "word": "event",
       "beats": "e-vent",
+      "pos": "noun",
       "definition": "Something that happens.",
       "sentence": "A birthday party is a fun event that people celebrate every year."
      },
      {
       "word": "unpredictable",
       "beats": "un-pre-dict-a-ble",
+      "pos": "adjective",
       "definition": "Not able to be known before it happens.",
       "sentence": "The weather in spring can be unpredictable, changing from sun to rain quickly."
      },
      {
       "word": "evacuate",
       "beats": "e-vac-u-ate",
+      "pos": "verb",
       "definition": "To leave a dangerous place and go somewhere safe.",
       "sentence": "When there is a fire, everyone must evacuate the building right away."
      },
      {
       "word": "gradual",
       "beats": "grad-u-al",
+      "pos": "adjective",
       "definition": "Happening slowly over a long time.",
       "sentence": "A caterpillar's gradual change into a butterfly happens step by step inside its cocoon."
      },
      {
       "word": "swift",
       "beats": "swift",
+      "pos": "adjective",
       "definition": "Very fast.",
       "sentence": "The swift runner crossed the finish line before anyone else."
      }

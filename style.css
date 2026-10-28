@@ -795,3 +795,12 @@ body.comp-active .container { max-width: 1160px; }
 .vp-story-head .vp-story-title { margin:0; font-size:1.6rem; }
 .vp-cover-img { width:96px; height:auto; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.18); flex-shrink:0; }
 @media (max-width:600px) { .vp-cover-img { width:72px; } .vp-story-head .vp-story-title { font-size:1.3rem; } }
+
+/* Part of speech on a Learn the Words card (10/27): one color each */
+.lc-pos-row { font-size:1.15rem; line-height:1.45; color:#444; margin:-6px 0 12px; }
+.lc-pos { font-weight:900; padding:0 4px; margin-right:-3px; border-radius:6px; }
+.lc-pos-noun        { color:#1a5276; background:#d6eaf8; }
+.lc-pos-verb        { color:#196f3d; background:#d5f5e3; }
+.lc-pos-adjective   { color:#935116; background:#fdebd0; }
+.lc-pos-adverb      { color:#6c3483; background:#ebdef0; }
+.lc-pos-conjunction { color:#7b241c; background:#fadbd8; }

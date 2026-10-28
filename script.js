@@ -593,6 +593,27 @@ function syncFormLabel(screenId) {
   FormLabel.show('📚 ' + SECTION_LABELS[s], ({ learn: 'blue', yesno: 'purple', ending: 'green' })[act.kind] || 'slate');
 }
 
+/* The part of speech on a Learn the Words card (Marcos 10/27), in the words of his Parts of Speech Review
+   sheets (9/15): a noun names a person, place, thing, or idea; an adjective describes a noun; an adverb
+   describes a verb. The word is named first, never "it". */
+const POS_SAY = {
+  noun: 'a word for a person, place, thing, or idea',
+  verb: 'a word that shows action',
+  adjective: 'a word that describes a noun',
+  adverb: 'a word that describes a verb',
+  conjunction: 'a word that joins two ideas'
+};
+function posLine(w) {
+  const pos = String(w.pos || '').toLowerCase();
+  if (!pos) return '';
+  const name = w.word.charAt(0).toUpperCase() + w.word.slice(1);
+  const a = /^[aeiou]/.test(pos) ? 'an' : 'a';
+  const meaning = POS_SAY[pos] ? `: ${POS_SAY[pos]}` : '';
+  // read in two parts with a short pause: "Desire is a noun." … "A word for a person, place, thing, or idea."
+  const say = POS_SAY[pos] ? `${name} is ${a} ${pos}.|${POS_SAY[pos].charAt(0).toUpperCase() + POS_SAY[pos].slice(1)}.` : `${name} is ${a} ${pos}.`;
+  return `<div class="lc-pos-row lc-line" data-say="${escapeHtml(say)}">${escapeHtml(name)} is ${a} <span class="lc-pos lc-pos-${escapeHtml(pos)}">${escapeHtml(pos)}</span>${escapeHtml(meaning)}.</div>`;
+}
+
 const app = {
 
   /* ── state ── */
@@ -1173,6 +1194,7 @@ const app = {
         <div class="lc-word lc-line" data-say="${escapeHtml(w.word)}">${escapeHtml(w.word)}</div>
       </div>
       ${w.beats && w.beats !== w.word ? `<div class="lc-beats" aria-hidden="true">${escapeHtml(w.beats).replace(/-/g, ' · ')}</div>` : ''}
+      ${posLine(w)}
       <div class="lc-row"><span class="lc-label">It means</span><div class="lc-line">${escapeHtml(w.definition)}</div></div>
       <div class="lc-row"><span class="lc-label">In a sentence</span><div class="lc-line">${markWord(w.sentence, w.word)}</div></div>
       <div class="lc-say lc-line" data-say="Now you say it.|${escapeHtml(w.word)}.">🗣️ Now you say it: <strong>${escapeHtml(w.word)}</strong></div>
