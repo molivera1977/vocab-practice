@@ -450,7 +450,7 @@ function speakDir(btn) {
 
   const speechText = spans.map(s => s.textContent).join(' ');
   const u = new SpeechSynthesisUtterance(speechText);
-  u.lang = 'en-US';
+  english(u);
   u.rate = READ_RATE;
 
   u.onboundary = e => {
@@ -476,6 +476,25 @@ function speakDir(btn) {
    (app.show) cancels the speech. */
 const INTRO_SAY = { '🔊': 'the speaker button', '⏹': 'the stop button', '—': ',' };
 const READ_RATE = 0.82;    // every read-aloud a student taps (Marcos 10/26: "I like the 0.82. It's clear and easy to listen to.")
+/* THE SAME VOICE AS QPS (Marcos 10/28, on Parts of Speech HQ: "why can't this site talk like QPS" · "the reading
+   speed also sounds different on QPS"; after the fix: "i like the sound and pacing of the read aloud"): every reading
+   asks for English and uses the device's own default English voice, picked the way the QPS Literacy Hub picks it
+   (qps-literacy-hub/readaloud.js). Asking only for "en-US" let the browser choose a different voice, which sounds
+   different at the same 0.82. A device that lists no voices yet still gets English. */
+let _enVoice = null;
+function englishVoice() {
+  if (_enVoice) return _enVoice;
+  const all = (window.speechSynthesis && speechSynthesis.getVoices && speechSynthesis.getVoices()) || [];
+  const isEn = v => /^en([-_]|$)/i.test((v && v.lang) || ''), us = v => /^en[-_]US$/i.test(v.lang || '');
+  _enVoice = all.find(v => v.default && isEn(v)) || all.find(v => us(v) && v.localService) || all.find(us) || all.find(isEn) || null;
+  return _enVoice;                         // null until the device lists its voices (Chrome lists them late): asked again next time
+}
+function english(u) {
+  u.lang = 'en-US';
+  const v = englishVoice();
+  if (v) { try { u.voice = v; } catch (e) { /* a voice the browser won't take: en-US still asks for English */ } }
+  return u;
+}
 const INTRO_RATE = 0.82;   // Marcos 10/6: 0.92 ran ahead of the highlight
 let introToken = 0, introTimer = null;
 let introMsPerChar = null, introMsPerWord = null;   // learned from this device's voice
@@ -546,7 +565,7 @@ function speakReadAloudIntro() {
       introTimer = setTimeout(tick, 60);
     };
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US'; u.rate = rate;
+    english(u); u.rate = rate;
     u.onstart = () => { startedAt = lastHeard = Date.now(); mark(0); clearTimeout(introTimer); tick(); };
     u.onboundary = e => {
       if (e.name !== 'word') return;
@@ -1254,7 +1273,7 @@ const app = {
       const spans = lines[k].spans.slice(from, j === parts.length - 1 ? undefined : from + count);
       if (!/[.!?:,]["”’]?$/.test(text)) text += '.';
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US'; u.rate = 0.82;
+      english(u); u.rate = 0.82;
       u.onboundary = e => {
         if (e.name !== 'word') return;
         box.querySelectorAll('.wrd.hl').forEach(el => el.classList.remove('hl'));
@@ -1285,7 +1304,7 @@ const app = {
     if (!w) return;
     activeSpeakBtn = btn; btn.textContent = '⏹';
     const u = new SpeechSynthesisUtterance(w.word + '.');
-    u.lang = 'en-US'; u.rate = READ_RATE;
+    english(u); u.rate = READ_RATE;
     u.onend = () => { btn.textContent = '🔊'; if (activeSpeakBtn === btn) activeSpeakBtn = null; };
     window.speechSynthesis.speak(u);
   },
@@ -1382,7 +1401,7 @@ const app = {
 
         // the words as they show (a dash is a word of its own on screen), so lightAt finds the word the voice is on
         const u = new SpeechSynthesisUtterance(spans.length ? spans.map(s => s.textContent).join(' ') : text);
-        u.lang = 'en-US';
+        english(u);
         u.rate = READ_RATE;
         u.onboundary = e => {
           if (e.name !== 'word') return;
@@ -1525,7 +1544,7 @@ const app = {
       stopActiveSpeech();
       activeSpeakBtn = fbSpeakBtn; fbSpeakBtn.textContent = '⏹';
       const u = new SpeechSynthesisUtterance(spokenFb);
-      u.lang = 'en-US'; u.rate = READ_RATE;
+      english(u); u.rate = READ_RATE;
       u.onend = () => { fbSpeakBtn.textContent = '🔊'; if (activeSpeakBtn === fbSpeakBtn) activeSpeakBtn = null; };
       window.speechSynthesis.speak(u);
     };
@@ -1655,7 +1674,7 @@ const app = {
       let text = lines[k].words.join(' ');
       if (!/[.!?:,]["”’]?$/.test(text)) text += '.';
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US'; u.rate = READ_RATE;
+      english(u); u.rate = READ_RATE;
       u.onboundary = e => {
         if (e.name !== 'word') return;
         box.querySelectorAll('.wrd.hl').forEach(el => el.classList.remove('hl'));
@@ -1684,7 +1703,7 @@ const app = {
     const qtText  = qtSpans.map(s => s.textContent).join(' ').replace(/_+/g, 'blank');
 
     const u = new SpeechSynthesisUtterance(qtText);
-    u.lang = 'en-US';
+    english(u);
     u.rate = READ_RATE;
     u.onboundary = e => {
       if (e.name !== 'word') return;
