@@ -1900,7 +1900,7 @@ const app = {
   },
 
   /* ── END SCREEN ACTIONS ──
-     Marcos 10/14: the buttons say where they go. "Back to My Activities" keeps
+     Marcos 10/14: the buttons say where they go. "Back to My Menu" keeps
      the student signed in; "Do This Activity Again" starts the same one (while a
      try is left); only "Sign Out" goes back to the very beginning. */
   backToMenu() {
@@ -1927,7 +1927,7 @@ const app = {
     if (sub) sub.textContent = free ? 'Start this one over.'
       : `Start this one over. You have ${left} ${left === 1 ? 'try' : 'tries'} left.`;
     note.classList.toggle('hidden', left !== 0);
-    note.textContent = left === 0 ? '✅ You used both tries for this activity. Go back to your activities to pick another one.' : '';
+    note.textContent = left === 0 ? '✅ You used both tries for this activity. Go back to your menu to pick another one.' : '';
   },
 
   tryAgain() {
