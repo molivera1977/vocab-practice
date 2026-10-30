@@ -804,3 +804,17 @@ body.comp-active .container { max-width: 1160px; }
 .lc-pos-adjective   { color:#935116; background:#fdebd0; }
 .lc-pos-adverb      { color:#6c3483; background:#ebdef0; }
 .lc-pos-conjunction { color:#7b241c; background:#fadbd8; }
+
+/* A reading stopped early (Marcos 10/30): the line saying what to do has its own 🔊, and the 🔊 to tap pulses */
+.lc-stopped .rp-speak { margin-right: 8px; vertical-align: middle; }
+@keyframes lc-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.55); }
+  50%      { box-shadow: 0 0 0 12px rgba(142, 68, 173, 0); }
+}
+.speak-btn.lc-pulse { animation: lc-pulse 2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .speak-btn.lc-pulse { animation: none; box-shadow: 0 0 0 4px rgba(142, 68, 173, 0.45); }
+}
+.lc-note { font-size: 1rem; font-weight: 700; color: #6b3d00; margin: 14px 0 8px; padding: 0; border: 0; text-align: left; }
+.lc-note.lc-stopped { display: flex; align-items: center; gap: 8px; }
+.lc-note.dir-section p { font-size: 1rem; font-weight: 700; color: #6b3d00; }
