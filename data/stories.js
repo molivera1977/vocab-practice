@@ -3,10 +3,1089 @@
    Do not edit by hand: change the content file, then run the tool again. */
 window.STORIES = [
  {
+  "id": "aa",
+  "num": 4,
+  "title": "Animal Adaptations",
+  "cover": "assets/covers/aa.webp",
+  "lists": [
+   {
+    "n": 1,
+    "words": [
+     {
+      "word": "predator",
+      "beats": "pred-a-tor",
+      "pos": "noun",
+      "definition": "An animal that hunts and eats other animals.",
+      "sentence": "A shark is a predator that hunts fish and seals in the ocean."
+     },
+     {
+      "word": "glands",
+      "beats": "glands",
+      "pos": "noun",
+      "definition": "Small body parts that make things the body needs, such as sweat, tears, or spray.",
+      "sentence": "When I smell fresh cookies, the glands in my mouth start making spit."
+     },
+     {
+      "word": "adaptation",
+      "beats": "ad-ap-ta-tion",
+      "pos": "noun",
+      "definition": "A body part or a way of acting that helps an animal survive where it lives.",
+      "sentence": "A duck's webbed feet are an adaptation that helps it swim fast across the pond."
+     },
+     {
+      "word": "physical trait",
+      "beats": "phys-i-cal trait",
+      "pos": "noun",
+      "definition": "A feature of an animal's body, such as its fur, color, or shape.",
+      "sentence": "An elephant's long trunk is a physical trait that helps it pick up food and spray water."
+     },
+     {
+      "word": "poisonous",
+      "beats": "poi-son-ous",
+      "pos": "adjective",
+      "definition": "Able to make you very sick or even kill you if it gets into your body.",
+      "sentence": "Mom keeps the cleaning spray on a high shelf because it is poisonous if someone drinks it."
+     },
+     {
+      "word": "vibrations",
+      "beats": "vi-bra-tions",
+      "pos": "noun",
+      "definition": "Small, quick shaking movements.",
+      "sentence": "When the big truck rumbled past our school, we felt vibrations in the classroom floor."
+     },
+     {
+      "word": "behavioral trait",
+      "beats": "be-hav-ior-al trait",
+      "pos": "noun",
+      "definition": "Something an animal does, or a way it acts, that helps it survive.",
+      "sentence": "Curling into a tight ball when it is scared is a behavioral trait of the pill bug."
+     },
+     {
+      "word": "migrate",
+      "beats": "mi-grate",
+      "pos": "verb",
+      "definition": "To move from one place to another when the seasons change.",
+      "sentence": "Every fall, the geese near our school migrate to warmer places, and they come back in the spring."
+     },
+     {
+      "word": "harsh",
+      "beats": "harsh",
+      "pos": "adjective",
+      "definition": "Rough, unpleasant, and hard to live with.",
+      "sentence": "The harsh wind and freezing rain kept everyone inside during recess."
+     },
+     {
+      "word": "average",
+      "beats": "av-er-age",
+      "pos": "adjective",
+      "definition": "Usual or typical, in the middle between the highest and the lowest amounts.",
+      "sentence": "The average score on our spelling test was 85, so most kids scored close to that."
+     },
+     {
+      "word": "annual",
+      "beats": "an-nu-al",
+      "pos": "adjective",
+      "definition": "Yearly, or happening once every year.",
+      "sentence": "Our town's annual parade happens once a year, on the Fourth of July."
+     },
+     {
+      "word": "extraordinary",
+      "beats": "ex-traor-di-nar-y",
+      "pos": "adjective",
+      "definition": "Very unusual and far beyond what is normal.",
+      "sentence": "Our class grew an extraordinary pumpkin that was so big it took four kids to lift it."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "a mouse hiding in a hole",
+       "an owl catching a mouse"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "body parts that make sweat",
+       "the bones in your leg"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a rock sitting in the sun",
+       "a frog’s sticky tongue that helps it catch bugs"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a dog wagging its tail",
+       "a dog’s curly fur"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a berry that can make you very sick",
+       "a fresh strawberry from the store"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "the buzzing you feel when a phone rings in your hand",
+       "a quiet picture on the wall"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a bear’s thick fur",
+       "a bear sleeping all winter"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "whales swimming to warm water every winter",
+       "a cat napping on the same couch every day"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a desert with burning sun and almost no water",
+       "a cozy room with a soft blanket"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a giant pumpkin that wins first prize",
+       "a pumpkin that is the usual size"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a race that happens once every year",
+       "a race that happens every hour"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a plain cup of water",
+       "a fish that can climb trees"
+      ],
+      "answer": 1
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "The predator was a tiny leaf that floated on the pond.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Some frogs have glands in their skin that make slime.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "An adaptation is a snack that animals buy at the store.",
+      "answer": "No"
+     },
+     {
+      "sentence": "A bird’s sharp beak is a physical trait that helps it crack seeds.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Some snakes are poisonous, so you should never pick one up.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The vibrations from the quiet, still pond shook the whole house.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Building a dam with sticks is a behavioral trait of the beaver.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The big rock will migrate across the ocean every spring.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The harsh weather was so mild and pleasant that everyone played outside.",
+      "answer": "No"
+     },
+     {
+      "sentence": "On an average school day, I get home at three o’clock.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Our family’s annual trip to the lake happens every summer.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The extraordinary game was so normal and boring that nobody remembered it.",
+      "answer": "No"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "When the predator came near, the little fish",
+      "choices": [
+       "swam away to hide.",
+       "swam up to play with it."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Some animals have glands that make a smelly spray, so other animals",
+      "choices": [
+       "love to come close.",
+       "stay far away."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "A porcupine’s sharp quills are an adaptation that helps it",
+      "choices": [
+       "keep predators away.",
+       "fly over the trees."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "An owl’s big eyes are a physical trait that helps it",
+      "choices": [
+       "forget where it lives.",
+       "see in the dark."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The label said the paint was poisonous, so Dad",
+      "choices": [
+       "let my little brother taste it.",
+       "kept it away from my little brother."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Spiders feel vibrations in their webs, so they know when",
+      "choices": [
+       "a bug is caught.",
+       "it is someone’s birthday."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Wolves howl to call their pack. This behavioral trait helps them",
+      "choices": [
+       "find each other.",
+       "grow longer fur."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Every winter, the whales migrate to",
+      "choices": [
+       "the same cold spot they never leave.",
+       "warmer water far away."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The harsh desert sun made the hikers",
+      "choices": [
+       "drink lots of water and find shade.",
+       "put on warm coats and mittens."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The average temperature in June is 80 degrees, so most June days are",
+      "choices": [
+       "freezing.",
+       "warm."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The library has an annual book sale, so it happens",
+      "choices": [
+       "one time each year.",
+       "every single day."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The singer had an extraordinary voice, so the crowd",
+      "choices": [
+       "walked out early.",
+       "cheered and clapped."
+      ],
+      "answer": 1
+     }
+    ],
+    "cloze": [
+     {
+      "sentence": "The hawk is a __________ that swoops down to grab snakes and mice.",
+      "choices": [
+       "vibrations",
+       "predator",
+       "glands"
+      ],
+      "answer": 1,
+      "word": "predator"
+     },
+     {
+      "sentence": "When a dog gets hot, __________ in its paws help it sweat.",
+      "choices": [
+       "predator",
+       "adaptation",
+       "glands"
+      ],
+      "answer": 2,
+      "word": "glands"
+     },
+     {
+      "sentence": "Long legs are one __________ that helps a deer run fast.",
+      "choices": [
+       "adaptation",
+       "glands",
+       "predator"
+      ],
+      "answer": 0,
+      "word": "adaptation"
+     },
+     {
+      "sentence": "The tiger’s orange and black stripes are a __________ you can see on its body.",
+      "choices": [
+       "physical trait",
+       "behavioral trait",
+       "predator"
+      ],
+      "answer": 0,
+      "word": "physical trait"
+     },
+     {
+      "sentence": "That mushroom in the yard is __________, so do not touch it or eat it.",
+      "choices": [
+       "annual",
+       "average",
+       "poisonous"
+      ],
+      "answer": 2,
+      "word": "poisonous"
+     },
+     {
+      "sentence": "The __________ from the washing machine made the whole floor shake.",
+      "choices": [
+       "glands",
+       "vibrations",
+       "adaptation"
+      ],
+      "answer": 1,
+      "word": "vibrations"
+     },
+     {
+      "sentence": "When a cat purrs to show it is happy, that is a __________, something the cat does.",
+      "choices": [
+       "behavioral trait",
+       "physical trait",
+       "glands"
+      ],
+      "answer": 0,
+      "word": "behavioral trait"
+     },
+     {
+      "sentence": "Each spring, the hummingbirds __________ back north to our garden after a winter far away.",
+      "choices": [
+       "harsh",
+       "migrate",
+       "annual"
+      ],
+      "answer": 1,
+      "word": "migrate"
+     },
+     {
+      "sentence": "The __________ desert has burning hot days, freezing nights, and almost no rain.",
+      "choices": [
+       "average",
+       "annual",
+       "harsh"
+      ],
+      "answer": 2,
+      "word": "harsh"
+     },
+     {
+      "sentence": "Our __________ test score this month was 80, which means most scores were close to 80.",
+      "choices": [
+       "harsh",
+       "extraordinary",
+       "average"
+      ],
+      "answer": 2,
+      "word": "average"
+     },
+     {
+      "sentence": "The town’s __________ pumpkin festival comes back every October.",
+      "choices": [
+       "annual",
+       "harsh",
+       "poisonous"
+      ],
+      "answer": 0,
+      "word": "annual"
+     },
+     {
+      "sentence": "The kid who could juggle seven balls at once had an __________ talent.",
+      "choices": [
+       "average",
+       "extraordinary",
+       "annual"
+      ],
+      "answer": 1,
+      "word": "extraordinary"
+     }
+    ]
+   },
+   {
+    "n": 2,
+    "words": [
+     {
+      "word": "tundra",
+      "beats": "tun-dra",
+      "pos": "noun",
+      "definition": "A cold, flat land with no trees, where the ground stays frozen most of the year.",
+      "sentence": "In the nature video, the tundra was flat and frozen, with no trees as far as we could see."
+     },
+     {
+      "word": "compact",
+      "beats": "com-pact",
+      "pos": "adjective",
+      "definition": "Small and packed closely together.",
+      "sentence": "Dad bought a compact car that is small enough to fit in our tiny garage."
+     },
+     {
+      "word": "lichen",
+      "beats": "li-chen",
+      "pos": "noun",
+      "definition": "A small, flat living thing that grows in patches on rocks and trees.",
+      "sentence": "Lichen grew in flat, crusty patches on the old stone wall at the park."
+     },
+     {
+      "word": "chambers",
+      "beats": "cham-bers",
+      "pos": "noun",
+      "definition": "Separate rooms or spaces inside something.",
+      "sentence": "The old castle had secret chambers hidden behind its thick walls."
+     },
+     {
+      "word": "sources",
+      "beats": "sour-ces",
+      "pos": "noun",
+      "definition": "Places or things where you can get something you need.",
+      "sentence": "The garden and the farm stand are our family's best sources of fresh vegetables."
+     },
+     {
+      "word": "decline",
+      "beats": "de-cline",
+      "pos": "verb",
+      "definition": "To get smaller in number or amount.",
+      "sentence": "As the weeks of fall go by, the number of leaves on our tree begins to decline."
+     },
+     {
+      "word": "dribbles",
+      "beats": "drib-bles",
+      "pos": "verb",
+      "definition": "Flows slowly in small drops.",
+      "sentence": "Water dribbles out of the leaky faucet one drop at a time."
+     },
+     {
+      "word": "camouflaged",
+      "beats": "cam-ou-flaged",
+      "pos": "adjective",
+      "definition": "Hidden because it looks like the things around it.",
+      "sentence": "During hide-and-seek, Tia wore a brown shirt and was camouflaged against the brown fence."
+     },
+     {
+      "word": "nocturnal",
+      "beats": "noc-tur-nal",
+      "pos": "adjective",
+      "definition": "Awake and active at night.",
+      "sentence": "Our class hamster is nocturnal, so it sleeps all day and runs on its wheel at night."
+     },
+     {
+      "word": "ecosystem",
+      "beats": "e-co-sys-tem",
+      "pos": "noun",
+      "definition": "All the plants, animals, and other things that live together in one place.",
+      "sentence": "The pond behind our school is a small ecosystem with frogs, fish, bugs, and plants."
+     },
+     {
+      "word": "brutal",
+      "beats": "bru-tal",
+      "pos": "adjective",
+      "definition": "Very hard and painful to live through.",
+      "sentence": "The brutal heat made the soccer players stop and rest in the shade every ten minutes."
+     },
+     {
+      "word": "conditions",
+      "beats": "con-di-tions",
+      "pos": "noun",
+      "definition": "The way things are in a place, such as how wet, dry, hot, or cold it is.",
+      "sentence": "The foggy conditions at the airport kept the planes from taking off."
+     },
+     {
+      "word": "marsh",
+      "beats": "marsh",
+      "pos": "noun",
+      "definition": "Low, wet land where tall grasses grow.",
+      "sentence": "Ducks and frogs live in the marsh behind the park, where the ground is always soggy."
+     },
+     {
+      "word": "bedrock",
+      "beats": "bed-rock",
+      "pos": "noun",
+      "definition": "The solid rock that lies under the dirt.",
+      "sentence": "When the river washed the dirt away, we could see the gray bedrock underneath."
+     },
+     {
+      "word": "benefit",
+      "beats": "ben-e-fit",
+      "pos": "verb",
+      "definition": "To be helped by something.",
+      "sentence": "All the students benefit from the new library because they can borrow more books."
+     },
+     {
+      "word": "prey",
+      "beats": "prey",
+      "pos": "noun",
+      "definition": "An animal that is hunted and eaten by another animal.",
+      "sentence": "Mice are prey for owls, so mice hide when an owl is near."
+     },
+     {
+      "word": "pounce",
+      "beats": "pounce",
+      "pos": "verb",
+      "definition": "To jump on something suddenly to catch it.",
+      "sentence": "My kitten likes to hide behind the couch and pounce on my shoelaces."
+     }
+    ],
+    "whichOne": [
+     {
+      "choices": [
+       "a frozen, treeless land in the far north",
+       "a jungle full of tall trees"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a long, stretched-out couch",
+       "a small, tightly packed lunch box"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a flat, crusty growth on a tree trunk",
+       "a bright red balloon"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "one empty hallway",
+       "the small rooms inside an anthill"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a broken pencil",
+       "rivers that give a town its water"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "the number of birds getting smaller in winter",
+       "a pile of snow getting bigger"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a waterfall roaring down a cliff",
+       "honey slowly dripping off a spoon"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a brown lizard hiding on a brown rock",
+       "a yellow bus on a dark road"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a raccoon looking for food at midnight",
+       "a robin singing in the morning"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a single pencil",
+       "a forest where trees, deer, and bugs live together"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a burning hot day with no shade",
+       "a cool, shady afternoon"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a book on a shelf",
+       "hot and dry weather in the desert"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a dry parking lot",
+       "soggy land with cattails and frogs"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "the hard rock deep under the ground",
+       "a soft pile of sand"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "losing your homework",
+       "being helped by a new pair of glasses"
+      ],
+      "answer": 1
+     },
+     {
+      "choices": [
+       "a rabbit that a fox chases",
+       "a fox chasing a rabbit"
+      ],
+      "answer": 0
+     },
+     {
+      "choices": [
+       "a frog leaping onto a fly",
+       "a frog resting on a lily pad"
+      ],
+      "answer": 0
+     }
+    ],
+    "usedRight": [
+     {
+      "sentence": "We went swimming in the warm tundra on our tropical island vacation.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The compact toy box fits neatly under my bed.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "We saw orange lichen growing on the boulders by the lake.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The chambers of the cake were sprinkled with sugar on top.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Cows and goats are sources of milk.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Our garden’s tomatoes will decline, so we will pick more tomatoes than ever.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The river dribbles so fast and hard that it knocks down trees.",
+      "answer": "No"
+     },
+     {
+      "sentence": "The gray moth was camouflaged on the gray tree bark.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "My nocturnal puppy is wide awake all day and sound asleep all night.",
+      "answer": "No"
+     },
+     {
+      "sentence": "A tide pool is a tiny ecosystem with crabs, snails, and seaweed.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The brutal storm tore the roofs off three barns.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "The conditions of the weather are three cookies and a glass of milk.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Cattails and frogs fill the marsh near our camp.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "We floated on the bedrock high up in the clouds.",
+      "answer": "No"
+     },
+     {
+      "sentence": "Kids benefit from a good night’s sleep because they feel better the next day.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "Small fish are prey for the big shark.",
+      "answer": "Yes"
+     },
+     {
+      "sentence": "To pounce, the cat lay down slowly and went to sleep.",
+      "answer": "No"
+     }
+    ],
+    "endings": [
+     {
+      "stem": "In winter, the tundra is",
+      "choices": [
+       "warm and full of flowers.",
+       "dark, icy, and very cold."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Our new compact table folds up, so it",
+      "choices": [
+       "fits in the closet.",
+       "fills the whole kitchen."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The hikers saw lichen and knew it was",
+      "choices": [
+       "a kind of fish.",
+       "a living thing growing on the rocks."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The beehive has many tiny chambers where the bees",
+      "choices": [
+       "store honey.",
+       "go to the movies."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Books and teachers are sources of information, so they",
+      "choices": [
+       "help you learn new things.",
+       "make you forget everything."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Ticket sales began to decline, so the theater",
+      "choices": [
+       "sold more tickets than ever.",
+       "sold fewer tickets each week."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "When I squeeze the wet sponge gently, water dribbles",
+      "choices": [
+       "onto the counter.",
+       "into outer space."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The snowy owl was camouflaged in the snow, so we",
+      "choices": [
+       "spotted it right away.",
+       "had a hard time seeing it."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "Our nocturnal gecko is busy",
+      "choices": [
+       "when the sun is up.",
+       "after the sun goes down."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The meadow is an ecosystem, so the bees, flowers, and birds",
+      "choices": [
+       "all depend on each other.",
+       "have nothing to do with each other."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The brutal hike up the steep mountain left us",
+      "choices": [
+       "full of energy.",
+       "tired and sore."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "The windy conditions at the beach made our kite",
+      "choices": [
+       "fly high in the sky.",
+       "stay on the ground."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "Ducks like the marsh because it has",
+      "choices": [
+       "lots of water and plants.",
+       "no water at all."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The tall building sits on bedrock, so it is",
+      "choices": [
+       "sinking into mud.",
+       "on a strong base."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "You will benefit from eating vegetables because they",
+      "choices": [
+       "help your body stay healthy.",
+       "make you sick."
+      ],
+      "answer": 0
+     },
+     {
+      "stem": "The mouse knew it was prey, so it",
+      "choices": [
+       "walked right up to the cat.",
+       "ran from the cat."
+      ],
+      "answer": 1
+     },
+     {
+      "stem": "My dog crouched low, ready to pounce on",
+      "choices": [
+       "the squeaky toy.",
+       "the moon."
+      ],
+      "answer": 0
+     }
+    ],
+    "cloze": [
+     {
+      "sentence": "Arctic foxes and snowy owls make their homes on the frozen, treeless __________ far to the north.",
+      "choices": [
+       "bedrock",
+       "marsh",
+       "tundra"
+      ],
+      "answer": 2,
+      "word": "tundra"
+     },
+     {
+      "sentence": "The __________ travel game folds into a tiny case that fits in my pocket.",
+      "choices": [
+       "compact",
+       "brutal",
+       "nocturnal"
+      ],
+      "answer": 0,
+      "word": "compact"
+     },
+     {
+      "sentence": "Patches of __________ made the old boulder look spotted with green and gray.",
+      "choices": [
+       "prey",
+       "lichen",
+       "marsh"
+      ],
+      "answer": 1,
+      "word": "lichen"
+     },
+     {
+      "sentence": "The submarine has many small __________ where the sailors sleep and work.",
+      "choices": [
+       "sources",
+       "chambers",
+       "conditions"
+      ],
+      "answer": 1,
+      "word": "chambers"
+     },
+     {
+      "sentence": "Fruits and vegetables are good __________ of vitamins.",
+      "choices": [
+       "chambers",
+       "conditions",
+       "sources"
+      ],
+      "answer": 2,
+      "word": "sources"
+     },
+     {
+      "sentence": "When the store raised its prices, the number of shoppers began to __________.",
+      "choices": [
+       "decline",
+       "benefit",
+       "pounce"
+      ],
+      "answer": 0,
+      "word": "decline"
+     },
+     {
+      "sentence": "A little bit of paint __________ down the side of the can when I tip it.",
+      "choices": [
+       "benefit",
+       "decline",
+       "dribbles"
+      ],
+      "answer": 2,
+      "word": "dribbles"
+     },
+     {
+      "sentence": "The striped tiger was __________ in the tall, shadowy grass, so the deer never saw it.",
+      "choices": [
+       "compact",
+       "camouflaged",
+       "brutal"
+      ],
+      "answer": 1,
+      "word": "camouflaged"
+     },
+     {
+      "sentence": "Fireflies are __________ bugs that light up the yard on summer nights.",
+      "choices": [
+       "nocturnal",
+       "compact",
+       "brutal"
+      ],
+      "answer": 0,
+      "word": "nocturnal"
+     },
+     {
+      "sentence": "The desert __________ includes cactus plants, lizards, snakes, and hawks that all depend on each other.",
+      "choices": [
+       "ecosystem",
+       "bedrock",
+       "lichen"
+      ],
+      "answer": 0,
+      "word": "ecosystem"
+     },
+     {
+      "sentence": "The __________ winter wind knocked down trees and froze the pipes.",
+      "choices": [
+       "compact",
+       "nocturnal",
+       "brutal"
+      ],
+      "answer": 2,
+      "word": "brutal"
+     },
+     {
+      "sentence": "The muddy __________ on the field made the soccer game slippery and messy.",
+      "choices": [
+       "sources",
+       "conditions",
+       "chambers"
+      ],
+      "answer": 1,
+      "word": "conditions"
+     },
+     {
+      "sentence": "We heard frogs croaking in the wet, grassy __________ beside the lake.",
+      "choices": [
+       "tundra",
+       "bedrock",
+       "marsh"
+      ],
+      "answer": 2,
+      "word": "marsh"
+     },
+     {
+      "sentence": "Under the soil and sand, the workers found solid __________.",
+      "choices": [
+       "bedrock",
+       "marsh",
+       "lichen"
+      ],
+      "answer": 0,
+      "word": "bedrock"
+     },
+     {
+      "sentence": "Students __________ from a quiet room because it helps them focus.",
+      "choices": [
+       "pounce",
+       "benefit",
+       "decline"
+      ],
+      "answer": 1,
+      "word": "benefit"
+     },
+     {
+      "sentence": "A frog’s __________ includes flies, crickets, and other bugs.",
+      "choices": [
+       "prey",
+       "chambers",
+       "conditions"
+      ],
+      "answer": 0,
+      "word": "prey"
+     },
+     {
+      "sentence": "The owl waited on the branch, ready to __________ on a mouse in the grass.",
+      "choices": [
+       "decline",
+       "benefit",
+       "pounce"
+      ],
+      "answer": 2,
+      "word": "pounce"
+     }
+    ]
+   }
+  ]
+ },
+ {
   "id": "ds",
   "num": 3,
   "title": "Dollars and Sense",
   "cover": "assets/covers/ds.webp",
+  "released": true,
   "lists": [
    {
     "n": 1,
