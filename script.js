@@ -1582,11 +1582,17 @@ const app = {
     fbSpeakBtn.className = 'speak-btn';
     fbSpeakBtn.style.cssText = 'float:left;margin:0 10px 4px 0;';
     fbSpeakBtn.textContent = '🔊';
+    // The right answer ends with a stop, so the voice pauses before "<word> means" (11/7: without it Kokoro read
+    // "an owl catching a mouse predator means", as if "mouse predator" went together).
+    // A lone Yes or No goes on with a comma ("No, because dribbles means: …"): Kokoro reads "No. dribbles" as
+    // "number dribbles" (11/7: its own phonemes say nˈʌmbəɹ, with or without quotes; "No," is nˈO).
+    const rightSaid = (isMulti ? q.answer : [q.answer]).map(a => q.choices[a]).join(' and ');
+    const yesNo = !correct && meaning && /^(Yes|No)$/.test(rightSaid);
     const spokenFb = (correct
       ? 'Correct!'
       : `Not quite. The correct answer${isMulti ? 's are' : ' is'}: ${
-          (isMulti ? q.answer : [q.answer]).map(a => q.choices[a]).join(' and ')
-        }`) + (meaning ? ` ${q.word} means: ${meaning}` : '');
+          yesNo ? rightSaid + ',' : /[.!?]["”’]?$/.test(rightSaid) ? rightSaid : rightSaid + '.'
+        }`) + (meaning ? ` ${yesNo ? 'because ' : ''}${q.word} means: ${meaning}` : '');
     fbSpeakBtn.onclick = () => {
       if (activeSpeakBtn === fbSpeakBtn) { stopActiveSpeech(); return; }
       stopActiveSpeech();
