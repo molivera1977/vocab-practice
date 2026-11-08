@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=1">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png?v=1">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=1">
-  <link rel="stylesheet" href="style.css?v=vp17-pos-nw1" />
+  <link rel="stylesheet" href="style.css?v=vp17-pos-nw1-teach1" />
 </head>
 <body>
 <canvas id="confetti-canvas"></canvas>
@@ -36,6 +36,14 @@
       <div style="text-align:right;margin-top:10px;">
         <span onclick="app.promptTeacherReview()" style="font-size:0.75rem;color:#767676;cursor:pointer;user-select:none;">Teacher Access</span>
       </div>
+    </div>
+
+    <!-- TRY IT AS A STUDENT (Teacher screen → ?share=…&teach=…): one tap starts the activity picked -->
+    <div id="teach-ready" class="teach-ready hidden">
+      <p class="teach-ready-h">🧑‍🏫 Try it as a student</p>
+      <p class="teach-ready-what" id="teach-what"></p>
+      <p class="teach-ready-note">You answer, the way a student does. ⏩ Skip the wait opens anything that is shut. Nothing is saved.</p>
+      <button type="button" class="action-btn" id="teach-start-btn" onclick="app.teachStart()">▶ Start</button>
     </div>
 
     <!-- STUDENT LOGIN (hidden until after directions) -->
@@ -291,6 +299,58 @@
   </div>
 
   <!-- ══════════════════════════════════════════
+       TEACHER SCREEN (Marcos 11/8, as on Parts of Speech HQ): one screen, no pop-ups. Any story, list
+       and activity — nothing has to be passed first. Filled in by script.js.
+  ══════════════════════════════════════════ -->
+  <div id="teacher-screen" class="hidden">
+    <div class="t-bar">
+      <span class="t-title">🧑‍🏫 Teacher</span>
+      <span class="t-note">Nothing here is saved or sent.</span>
+      <button type="button" class="t-exit" onclick="app.exitTeacher()">✕ Exit teacher</button>
+    </div>
+    <h3 class="t-h">Story</h3>
+    <div class="t-row" id="t-stories"></div>
+    <h3 class="t-h">List</h3>
+    <div class="t-row" id="t-lists"></div>
+    <h3 class="t-h">Activity</h3>
+    <div class="t-row" id="t-kinds"></div>
+    <p class="t-picked" id="t-picked"></p>
+    <div class="t-actions">
+      <button type="button" class="t-act" id="t-try" onclick="app.teacherTry()">👀 Try it as a student<span>You answer, like a student. ⏩ Skip the wait opens anything that is shut. Nothing is saved.</span></button>
+      <button type="button" class="t-act" id="t-slides" onclick="app.teacherSlides()">🖥️ Slide Mode<span>The list's word cards, big, for your desk or the board. Never the questions.</span></button>
+      <button type="button" class="t-act" id="t-key" onclick="app.teacherKey()">✅ Answer key<span>Every question on one page, the right answer marked. You can print it.</span></button>
+    </div>
+  </div>
+
+  <div id="key-screen" class="hidden">
+    <div class="t-bar">
+      <span class="t-title" id="key-title">✅ Answer key</span>
+      <button type="button" class="t-exit" onclick="app.printKey()">🖨️ Print</button>
+      <button type="button" class="t-exit" onclick="app.openTeacher()">← Teacher screen</button>
+    </div>
+    <div id="key-body"></div>
+  </div>
+
+  <!-- SLIDE MODE (the Teacher screen): the list's word cards, big — the teaching only, never the questions -->
+  <div id="slide-screen" class="hidden">
+    <div class="sl-bar">
+      <span class="sl-title" id="sl-title">🖥️ Slide Mode</span>
+      <span class="sl-count" id="sl-count"></span>
+      <span class="sl-go">
+        <button type="button" class="sl-step" id="sl-prev" aria-label="Back one word" onclick="app.slideGo(app._slides.at - 1)">◀</button>
+        <select id="sl-jump" aria-label="Go to a word" onchange="app.slideGo(Number(this.value)); this.blur();"></select>
+        <button type="button" class="sl-step" id="sl-fwd" aria-label="Forward one word" onclick="app.slideGo(app._slides.at + 1)">▶</button>
+      </span>
+      <button type="button" class="sl-exit" onclick="app.exitSlides()">✕ Exit</button>
+    </div>
+    <div class="sl-body learn-card" id="sl-body"></div>
+    <div class="sl-nav">
+      <button type="button" class="action-btn" id="sl-back" onclick="app.slideGo(app._slides.at - 1)">◀ Back</button>
+      <button type="button" class="action-btn" id="sl-next" onclick="app.slideGo(app._slides.at + 1)">Next ▶</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
        END SCREEN
   ══════════════════════════════════════════ -->
   <div id="end-screen" class="hidden">
@@ -309,10 +369,6 @@
     <p id="again-note" class="again-note hidden"></p>
     <div style="text-align:center;margin-top:14px;">
       <button class="signout-btn" onclick="app.restart()">🚪 Sign Out<span class="signout-sub">Only when you are all done. You will go back to the start.</span></button>
-    </div>
-    <div id="review-next-btn" class="hidden" style="text-align:center;margin-top:12px;">
-      <button class="start-btn" style="background:#8e44ad;box-shadow:0 5px 0 #6c3483;" onclick="app._showReviewPicker()">🔍 Review Another Activity</button>
-      <button onclick="app.exitReviewMode()" style="display:block;margin:10px auto 0;background:none;border:none;color:#999;font-size:0.8rem;cursor:pointer;font-family:inherit;text-decoration:underline;">Exit Review Mode</button>
     </div>
   </div>
 
@@ -371,12 +427,24 @@
 
 </div><!-- /.container -->
 
-<script src="share.js?v=3"></script>
+<!-- Try it as a student: the teacher's bar (shown only on a ?teach= link) -->
+<div id="teach-bar" class="teach-bar hidden">
+  <span class="teach-bar-what">🧑‍🏫 Trying it as a student · nothing is saved</span>
+  <span class="teach-go">
+    <button type="button" id="teach-prev" aria-label="Back one" onclick="app.teachStep(-1)">◀</button>
+    <select id="teach-jump" aria-label="Go to a word card or question" onchange="app.teachGo(Number(this.value)); this.blur();"></select>
+    <button type="button" id="teach-next" aria-label="Forward one" onclick="app.teachStep(1)">▶</button>
+  </span>
+  <button type="button" id="teach-skip" onclick="app.teacherSkipWait()">⏩ Skip the wait</button>
+  <button type="button" id="teach-back" onclick="app.backToTeacher()">← Teacher screen</button>
+</div>
+
+<script src="share.js?v=4"></script>
 <script src="form-label.js?v=1"></script>
 <script src="kokoro/lines.js?v=99cf0e53"></script>
 <script src="kokoro-voice.js?v=1"></script>
 <script src="next-waits.js?v=1" data-hold='#next-btn, #lc-next'></script>
 <script src="data/stories.js?v=vp18-aa"></script>
-<script src="script.js?v=vp17-pos-follow1-dir15-voice1-menu1-nw1-kok1"></script>
+<script src="script.js?v=vp17-pos-follow1-dir15-voice1-menu1-nw1-kok1-teach1"></script>
 </body>
 </html>

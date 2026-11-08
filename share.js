@@ -17,6 +17,7 @@
 
   var on = new URLSearchParams(location.search).get('share') === SHARE_CODE;
   window.SHARE_MODE = on;
+  window.SHARE_LINK = '?share=' + SHARE_CODE;   // the guest link, for a site's own Teacher screen (Try it as a student)
   if (!on) return;
 
   /* 1. Storage: every key gets a share_ prefix, and each visit starts clean. */

@@ -818,3 +818,85 @@ body.comp-active .container { max-width: 1160px; }
 .lc-note { font-size: 1rem; font-weight: 700; color: #6b3d00; margin: 14px 0 8px; padding: 0; border: 0; text-align: left; }
 .lc-note.lc-stopped { display: flex; align-items: center; gap: 8px; }
 .lc-note.dir-section p { font-size: 1rem; font-weight: 700; color: #6b3d00; }
+
+/* ═══════════════════════════════════════════════════════
+   TEACHER SCREEN (Marcos 11/8, the Parts of Speech HQ one): a story, a list, an activity, then
+   Try it as a student · Slide Mode · Answer key. Same yellow bar as the old review banner.
+═══════════════════════════════════════════════════════ */
+.t-bar { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; background: #fff3cd; border: 2px solid #ffc107;
+         border-radius: 12px; padding: 8px 14px; margin-bottom: 14px; color: #856404; font-weight: 700; }
+.t-title { flex: 1 1 auto; font-size: 1.1rem; }
+.t-note { font-weight: 400; font-size: 0.9rem; }
+.t-exit { background: none; border: 1px solid #ffc107; border-radius: 8px; padding: 5px 12px; font: inherit; font-weight: 700;
+          color: #856404; cursor: pointer; }
+.t-h { font-size: 1rem; color: var(--primary); margin: 14px 0 6px; }
+.t-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.t-pick { font: inherit; font-size: 0.98rem; font-weight: 700; padding: 9px 14px; border-radius: 10px; cursor: pointer;
+          background: #fff; color: var(--primary); border: 2px solid #c5d3ea; }
+.t-pick small { font-weight: 400; color: inherit; opacity: 0.8; }
+.t-pick:hover { border-color: var(--primary); }
+.t-pick.on { background: var(--primary); color: #fff; border-color: var(--primary); }
+.t-picked { margin: 16px 0 8px; font-weight: 700; color: #333; }
+.t-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.t-act { font: inherit; font-size: 1.08rem; font-weight: 700; text-align: left; padding: 14px 16px; border-radius: 14px; cursor: pointer;
+         background: #fff; color: var(--primary); border: 3px solid var(--primary); box-shadow: 0 4px 0 #c5d3ea; }
+.t-act:hover { background: #eef3ff; }
+.t-act span { display: block; margin-top: 6px; font-size: 0.85rem; font-weight: 400; color: #444; line-height: 1.4; }
+
+/* ✅ Answer key: one block per question, the right answer in green, what the word means under it */
+.key-q { border: 1px solid #e3e8f0; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; break-inside: avoid; }
+.key-where { display: inline-block; background: #eef3ff; color: var(--primary); font-weight: 700; font-size: 0.9rem;
+             border-radius: 999px; padding: 2px 12px; margin: 0 0 6px; }
+.key-ask { font-weight: 700; margin: 4px 0 8px; line-height: 1.5; }
+.key-choices { margin: 8px 0; padding-left: 26px; }
+.key-choices li { margin: 3px 0; }
+.key-choices li.key-right { color: var(--correct-dk); font-weight: 700; }
+.key-why { margin-top: 8px; padding: 8px 12px; background: #f1f8f4; border-radius: 10px; }
+/* Printed, the key starts with its title (Marcos 11/4: "every print version should have a title") */
+.key-print-head { display: none; }
+@media print {
+  @page { size: letter; margin: 0.5in; }
+  body.key-printing .key-print-head { display: block; margin: 0 0 8px; padding-bottom: 8px; border-bottom: 2px solid #333; }
+  body.key-printing .key-print-head h1 { margin: 0; font-size: 18pt; line-height: 1.2; color: #000; }
+  body.key-printing .key-print-head p { margin: 4px 0 0; font-size: 11pt; color: #333; }
+  body.key-printing { background: #fff; padding: 0; }
+  body.key-printing .container > :not(#key-screen),
+  body.key-printing #key-screen .t-bar,
+  body.key-printing .share-banner,
+  body.key-printing #teach-bar,
+  body.key-printing canvas { display: none !important; }
+  body.key-printing .container { box-shadow: none; padding: 0; margin: 0; max-width: none; }
+}
+
+/* 👀 Try it as a student: the one-tap start, and the teacher's bar along the bottom */
+.teach-ready { text-align: center; padding: 20px 10px; }
+.teach-ready-h { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 0 0 6px; }
+.teach-ready-what { font-size: 1.1rem; font-weight: 700; margin: 0 0 8px; }
+.teach-ready-note { color: #555; margin: 0 0 16px; }
+.teach-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9998; display: flex; align-items: center; justify-content: center;
+             flex-wrap: wrap; gap: 6px 12px; padding: 7px 12px; background: #fff3cd; border-top: 2px solid #ffc107;
+             color: #856404; font: 700 0.9rem/1.3 system-ui, sans-serif; }
+.teach-bar button { font: inherit; padding: 5px 12px; border-radius: 8px; border: 1px solid #d4a106; background: #fff; color: #856404; cursor: pointer; }
+.teach-bar button:disabled { opacity: 0.4; cursor: default; }
+.teach-go { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+#teach-bar:not(.started) .teach-go { display: none; }   /* the menu and arrows come with the run (▶ Start) */
+#teach-jump { font: inherit; font-weight: 400; max-width: 260px; min-width: 0; padding: 4px 6px; border-radius: 8px; border: 1px solid #d4a106; background: #fff; color: #5c4703; }
+body.teach-on { padding-bottom: 64px; }
+
+/* 🖥️ Slide Mode: the word card, big, with ◀ [menu] ▶ beside the menu and Back / Next under it */
+body.slides-active .container { max-width: 1100px; }
+.sl-bar { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; background: #fff3cd; border: 2px solid #ffc107;
+          border-radius: 12px; padding: 8px 14px; margin-bottom: 14px; color: #856404; font-weight: 700; }
+.sl-title { flex: 1 1 auto; font-size: 1.05rem; }
+.sl-count { font-size: 1rem; white-space: nowrap; }
+.sl-go { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+#sl-jump { font-family: inherit; font-size: 0.95rem; padding: 5px 8px; border-radius: 8px; border: 1px solid #d4b106;
+           background: #fff; color: #5c4703; max-width: 260px; min-width: 0; }
+.sl-step, .sl-exit { background: #fff; border: 1px solid #d4b106; border-radius: 8px; padding: 4px 10px; font: inherit; font-weight: 700; color: #5c4703; cursor: pointer; }
+.sl-step:disabled { opacity: 0.4; cursor: default; }
+.sl-body.learn-card .lc-word { font-size: clamp(2rem, 7vw, 4.2rem); }
+.sl-body.learn-card .lc-row .lc-line { font-size: clamp(1.3rem, 2.6vw, 1.9rem); }
+.sl-body.learn-card .lc-pos-row { font-size: 1.4rem; }
+.sl-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.sl-nav .action-btn { min-width: 150px; font-size: 1.15rem; }
+.sl-nav .action-btn:disabled { opacity: 0.45; cursor: default; }
