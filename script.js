@@ -147,6 +147,7 @@ const ROSTER = [
   { name: "Collado, Roniel",           id: "10060249" },
   { name: "Dejesus, Michael",          id: "10049434" },
   { name: "Dock, Fakeem",              id: "10059720" },
+  { name: "Douglas, Isaac",            id: "10070979" },
   { name: "Douglas, Iyana",            id: "10070980" },
   { name: "Dumphrey, Christopher",     id: "10060696" },
   { name: "Flores, Kiara",             id: "10052834" },
