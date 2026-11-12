@@ -2426,5 +2426,8 @@ if (window.SpotSync) SpotSync.init({
   site: 'vocab-practice', key: STORAGE_KEY, url: SHEET_URL, app,
   who: () => loggedInName,
   skip: () => SHARE_MODE || reviewMode,
-  usable: s => { const a = ACTIVITIES[s.currentSection]; return !!a && !(a.story && a.story.released) && Array.isArray(s.currentBank) && s.currentBank.length > 0; }
+  usable: s => { const a = ACTIVITIES[s.currentSection]; return !!a && !(a.story && a.story.released) && Array.isArray(s.currentBank) && s.currentBank.length > 0; },
+  // finished parts follow the student too (Marcos 11/12: "Make finished parts and unlocks follow kids across computers next?" → "Yes, build it")
+  records: [{ key: SCORES_KEY }],
+  refresh: name => applyLocks(name)
 });
