@@ -19,8 +19,9 @@
    Nothing is sent for a guest, the teacher, the share link or Teacher Review Mode (cfg.skip).
    Nothing in the site's save changes: this file watches localStorage.setItem / removeItem for that one key.
 
-   SpotSync.init({ site, key, url, who, skip, usable, attemptOf, progOf, app })
+   SpotSync.init({ site, key, url, who, skip, usable, attemptOf, progOf, app, perStudent })
      site — the site's name on the sheet ('inference-practice'); key — its STORAGE_KEY; url — SHEET_URL;
+     perStudent — true when the site keeps one save PER STUDENT under STORAGE_KEY + ':' + name (the unit tests);
      who() — the student signed in now; skip() — true = send nothing now (share link, review mode);
      usable(save) — can this site still open that save (optional); attemptOf / progOf — optional (defaults below);
      app — optional: the site's app; its checkResume then waits for the sheet once per sign-in (the menu held,
@@ -62,12 +63,15 @@
   const pastLast = s => Array.isArray(s.currentBank) && Number(s.currentIndex) >= s.currentBank.length;
   const endKey = (name, attempt) => name + '|' + attempt;
 
-  // { name, attempt, prog, t (this computer's clock when saved), sent (prog the sheet has) } for the save here
-  const metaKey = () => cfg.key + ':spot';
-  const clearsKey = () => cfg.key + ':spot-clears';   // tries this computer saw end, not yet on the sheet
-  const readMeta = () => parse(rawGet(metaKey()));
-  const writeMeta = m => { quiet++; try { if (m) rawSet(metaKey(), JSON.stringify(m)); else rawRemove(metaKey()); } finally { quiet--; } };
-  const metaFor = s => { const m = readMeta(); return m && s && m.name === s.studentName && m.attempt === attemptOf(s) ? m : null; };
+  // The site's save for a student: one key (most sites) or one per student (perStudent: STORAGE_KEY + ':' + name)
+  const keyFor = name => (cfg.perStudent ? cfg.key + ':' + name : cfg.key);
+  const watched = k => k === cfg.key || (!!cfg.perStudent && typeof k === 'string' && k.indexOf(cfg.key + ':') === 0);
+  // { name, attempt, prog, t (this computer's clock when saved), sent (prog the sheet has) } for the save under key k
+  const metaKey = k => 'spotsync:' + k;
+  const clearsKey = () => 'spotsync-clears:' + cfg.key;   // tries this computer saw end, not yet on the sheet
+  const readMeta = k => parse(rawGet(metaKey(k)));
+  const writeMeta = (k, m) => { quiet++; try { if (m) rawSet(metaKey(k), JSON.stringify(m)); else rawRemove(metaKey(k)); } finally { quiet--; } };
+  const metaFor = (k, s) => { const m = readMeta(k); return m && s && m.name === s.studentName && m.attempt === attemptOf(s) ? m : null; };
 
   function post(body, { signal, keepalive, timeoutMs } = {}) {
     const text = JSON.stringify(body);
@@ -82,8 +86,8 @@
     t: t || 0, data: raw, ...(extra || {})
   });
   function markSent(body) {
-    const m = readMeta();
-    if (m && m.name === body.name && m.attempt === body.attempt) writeMeta({ ...m, sent: Math.max(m.sent == null ? -1 : m.sent, body.prog) });
+    const k = keyFor(body.name), m = readMeta(k);
+    if (m && m.name === body.name && m.attempt === body.attempt) writeMeta(k, { ...m, sent: Math.max(m.sent == null ? -1 : m.sent, body.prog) });
   }
 
   /* ── 1. every save of the key → the newest copy goes to the sheet ── */
@@ -114,12 +118,12 @@
       })
       .finally(() => { inFlight = false; if (pending) schedule(delayFor(pending)); });
   }
-  function onSaved(raw) {
+  function onSaved(k, raw) {
     const save = parse(raw);
     if (!save || skipName(save.studentName) || skipNow()) return;
     if (cfg.who && cfg.who() !== save.studentName) return;   // only the signed-in student's own work goes out
-    const attempt = attemptOf(save), prog = progOf(save), old = metaFor(save);
-    writeMeta({ name: save.studentName, attempt, prog, t: Date.now(), sent: old ? old.sent : -1 });
+    const attempt = attemptOf(save), prog = progOf(save), old = metaFor(k, save);
+    writeMeta(k, { name: save.studentName, attempt, prog, t: Date.now(), sent: old ? old.sent : -1 });
     if (ended.has(endKey(save.studentName, attempt))) return;
     pending = saveBody(save, raw, Date.now(), unsure.has(save.studentName) ? { ifSame: true } : null);
     if (!inFlight) schedule(delayFor(pending));
@@ -143,10 +147,10 @@
       })
       .catch(() => { clearing = false; setTimeout(sendClears, RETRY_MS); });
   }
-  function onRemoved(oldRaw) {
+  function onRemoved(k, oldRaw) {
     const save = parse(oldRaw);
-    const m = save ? metaFor(save) : null;
-    writeMeta(null);
+    const m = save ? metaFor(k, save) : null;
+    writeMeta(k, null);
     if (!save || skipName(save.studentName) || skipNow()) return;
     const attempt = attemptOf(save);
     if (save.studentName === (cfg.who && cfg.who())) {
@@ -168,14 +172,14 @@
     rawRemove = k => { try { remove.call(LS, k); } catch (e) { /* blocked */ } };
     proto.setItem = function (k, v) {
       const r = set.apply(this, arguments);   // a full storage throws here, like before
-      if (cfg && !quiet && this === LS && k === cfg.key) { try { onSaved(String(v)); } catch (e) { /* never break the site */ } }
+      if (cfg && !quiet && this === LS && watched(k)) { try { onSaved(k, String(v)); } catch (e) { /* never break the site */ } }
       return r;
     };
     proto.removeItem = function (k) {
-      const watch = cfg && !quiet && this === LS && k === cfg.key;
+      const watch = cfg && !quiet && this === LS && watched(k);
       const old = watch ? rawGet(k) : null;
       const r = remove.apply(this, arguments);
-      if (watch && old) { try { onRemoved(old); } catch (e) { /* never break the site */ } }
+      if (watch && old) { try { onRemoved(k, old); } catch (e) { /* never break the site */ } }
       return r;
     };
     proto.__spotSync = true;
@@ -183,21 +187,22 @@
   function closing() { if (pending) flush(true); }
 
   /* ── 3. at sign-in ── */
-  function putHere(raw, m) {
+  function putHere(k, raw, m) {
     quiet++;
-    try { rawSet(cfg.key, raw); } finally { quiet--; }
-    writeMeta(m);
+    try { rawSet(k, raw); } finally { quiet--; }
+    writeMeta(k, m);
   }
-  function dropHere() {
+  function dropHere(k) {
     quiet++;
-    try { rawRemove(cfg.key); } finally { quiet--; }
-    writeMeta(null);
+    try { rawRemove(k); } finally { quiet--; }
+    writeMeta(k, null);
   }
   async function decide(name, r, deadline) {
     if (cfg.who && cfg.who() !== name) return 'stale';
-    const raw = rawGet(cfg.key), here = parse(raw);
+    const k = keyFor(name);
+    const raw = rawGet(k), here = parse(raw);
     const hereName = here && here.studentName;
-    const m = here ? metaFor(here) : null;
+    const m = here ? metaFor(k, here) : null;
     const hereT = m ? m.t : 0;
     const endedHere = readClears().some(c => c.name === name && c.attempt === r.attempt);
     let sheet = null;
@@ -209,7 +214,7 @@
 
     if (hereName === name) {
       const attempt = attemptOf(here), prog = progOf(here);
-      if (r.found && r.state === 'done' && r.attempt === attempt) { dropHere(); return 'ended'; }
+      if (r.found && r.state === 'done' && r.attempt === attempt) { dropHere(k); return 'ended'; }
       const sheetAhead = !!sheet && (r.attempt === attempt ? r.prog > prog : r.t > hereT);
       if (!sheetAhead) {
         // this computer's copy is the one to keep: make sure the sheet has it
@@ -219,7 +224,7 @@
         }
         return 'device';
       }
-      putHere(r.data, fromSheet);
+      putHere(k, r.data, fromSheet);
       return 'sheet';
     }
     if (!sheet) return 'none';
@@ -229,7 +234,7 @@
       if (!res || res.ok !== true) return 'device';
       if (cfg.who && cfg.who() !== name) return 'stale';
     }
-    putHere(r.data, fromSheet);
+    putHere(k, r.data, fromSheet);
     return 'sheet';
   }
   function restore(name) {
@@ -250,7 +255,7 @@
   function hold(on) {
     const root = document.documentElement;
     root.classList.toggle('spot-wait', on);
-    const menu = document.getElementById('section-select');
+    const menu = document.getElementById('section-select') || document.getElementById('form-select-section');   // the site's menu
     if (menu) { if (on) menu.setAttribute('inert', ''); else menu.removeAttribute('inert'); }
     const rc = document.getElementById('resume-container');
     if (on && rc) rc.classList.add('hidden');
@@ -266,7 +271,7 @@
       const st = document.createElement('style');
       st.id = 'spot-wait-style';
       st.textContent = '.spot-wait-note{display:none;text-align:center;font-weight:800;color:#1f3a8a;margin:6px 0 10px}' +
-        'html.spot-wait .spot-wait-note{display:block}html.spot-wait #section-select{opacity:.5;pointer-events:none}';
+        'html.spot-wait .spot-wait-note{display:block}html.spot-wait #section-select,html.spot-wait #form-select-section{opacity:.5;pointer-events:none}';
       document.head.appendChild(st);
     }
   }
