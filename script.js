@@ -2417,3 +2417,14 @@ app.init();
     e.stopPropagation();
   }
 }, true));
+
+/* ── PICK UP ON ANY COMPUTER (Marcos 11/12: "i want the kids to have the same experience that they have at home to be
+   like they were logging on at school") — spot-sync.js (the same file on every site) keeps a copy of this site's save
+   (STORAGE_KEY) on the sheet. At sign-in, checkResume waits for the sheet once (the menu held, "Looking for your saved
+   work…") and the copy that is further along is the one "Welcome back! Resume Where I Left Off" shows. */
+if (window.SpotSync) SpotSync.init({
+  site: 'vocab-practice', key: STORAGE_KEY, url: SHEET_URL, app,
+  who: () => loggedInName,
+  skip: () => SHARE_MODE || reviewMode,
+  usable: s => { const a = ACTIVITIES[s.currentSection]; return !!a && !(a.story && a.story.released) && Array.isArray(s.currentBank) && s.currentBank.length > 0; }
+});
