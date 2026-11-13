@@ -80,13 +80,39 @@ function attemptSessionId() {
   return (app.sessionBase || SESSION_ID) + '-' + (app.currentSection || 'x') + '-A' + (app.currentAttemptNum || 1);
 }
 
+/* ONE ROW AT A TIME, IN ORDER (11/13, with the row at every question). The sheet script finds this try's row and
+   writes over it with no lock, so if the last question's row were still being written when the finished row came
+   in, it could land second and turn "Complete" back into In Progress. Each row here leaves only when the one
+   before it has been answered (or after SEND_WAIT_MS, so a lost answer never holds the rest). The row's words are
+   taken when it is made, not when it leaves. A slow sheet never builds a pile: an in-progress row still waiting
+   is replaced by the newer one, and the finished row drops it (the finished row says it all). */
+const SEND_WAIT_MS = 20000;
+let sheetLine = Promise.resolve();
+let rowWaiting = null;   // an in-progress row made but not sent yet
+function sendRow(body) {
+  const text = JSON.stringify(body);
+  if (rowWaiting && !body.done) { rowWaiting.text = text; return rowWaiting.sent; }
+  if (rowWaiting) { rowWaiting.text = null; rowWaiting = null; }
+  const row = { text };
+  const go = () => {
+    if (rowWaiting === row) rowWaiting = null;
+    if (row.text == null) return;
+    return fetch(SHEET_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: row.text
+    }).catch(() => {});
+  };
+  row.sent = sheetLine.then(go);
+  if (!body.done) rowWaiting = row;
+  sheetLine = Promise.race([row.sent, new Promise(r => setTimeout(r, SEND_WAIT_MS))]);
+  return row.sent;
+}
+
 function submitScorePartial() {
   const pct = app.currentBank.length
     ? Math.round((app.score / app.currentBank.length) * 100) : 0;
-  fetch(SHEET_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
+  sendRow({
       action:         'submit',
       game:           GAME_KEYS[app.currentSection] || 'vocab-practice',
       sessionId:      attemptSessionId(),
@@ -102,19 +128,18 @@ function submitScorePartial() {
       wrongQuestions: (app.missedQuestions||[]).map(missEntry).join(' | '),
       startedAt:      app.startedAt || '',
       finishedAt:     app.finishedAt || '',
-      events:         JSON.stringify(app.events || []),
+      // where the student is now, for the dashboard (Marcos 11/13: "Yes, every question"). The sheet keeps no status
+      // text, only the events, so the place rides at the end of this row's copy of the log (never in app.events):
+      // the question, or the word cards before it (the dashboard's onQuestion: "on 7 of 12" / "on the lesson cards")
+      events:         JSON.stringify([...(app.events || []), { e: 'on', q: app.currentIndex + 1, of: app.currentBank.length, ...(app._needsCards() ? { cards: true } : {}) }]),
       timestamp:      new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
-    })
-  }).catch(() => {});
+  });
 }
 
 function submitScoreFinal() {
   const pct = app.currentBank.length
     ? Math.round((app.score / app.currentBank.length) * 100) : 0;
-  fetch(SHEET_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
+  sendRow({
       action:         'submit',
       game:           GAME_KEYS[app.currentSection] || 'vocab-practice',
       sessionId:      attemptSessionId(),
@@ -133,8 +158,7 @@ function submitScoreFinal() {
       finishedAt:     app.finishedAt || '',
       events:         JSON.stringify(app.events || []),
       timestamp:      new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
-    })
-  }).catch(() => {});
+  });
 }
 
 /* ── ROSTER ─────────────────────────────────────────── */
@@ -1616,7 +1640,9 @@ const app = {
   },
 
   renderQuestion() {
-    if (this._needsCards()) { this._showCards(); return; }
+    // the word cards before a group of questions send a row too: on the dashboard the moment Learn starts, and the
+    // last question's answer is there while the student reads the next four cards
+    if (this._needsCards()) { this._showCards(); submitScorePartial(); return; }
     this._leaveCards();
     if (TEACH) this._teachSync();
     const q      = this.currentBank[this.currentIndex];
@@ -1699,9 +1725,9 @@ const app = {
       wrap.appendChild(row);
     });
 
-    if (this.currentIndex > 0 && this.currentIndex % 5 === 0) {
-      submitScorePartial();
-    }
+    // a row at EVERY question (Marcos 11/13: "Yes, every question"; it was every 5th): the dashboard has the score so
+    // far and which question, from question 1 on. Same session id every time, so the sheet keeps updating ONE row.
+    submitScorePartial();
 
     this.saveProgress();
 
