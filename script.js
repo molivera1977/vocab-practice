@@ -455,8 +455,28 @@ function allSectionsCompletedOnce(name) {
   return Object.values(getSectionAttempts(name)).every(n => n >= 1);
 }
 
-/* Two tries per activity. The activities are spread over several days, so a
-   second try never waits on the other activities. */
+/* ONE TIME THROUGH FIRST (Marcos 11/13: "I want all of the sections blocked after one time through, and a second
+   pass at it should only be allowed after each section has been completed at least once.")
+   Two tries per activity, as before. An activity done once now locks until EVERY activity of its story is done
+   once; then each one opens for its 2nd (last) try. Only the class's story: released stories stay free practice
+   (Marcos 10/27). The Teacher PIN lets one student past; the share link and Teacher Access have no gate.
+   (Before: "the activities are spread over several days, so a second try never waits on the other activities.") */
+function storyActivities(story) {
+  return Object.values(ACTIVITIES).filter(a => a.story === story);
+}
+/* The activities of this one's story not done yet when its 2nd try has to wait for them (none = no wait) */
+function secondTryWait(name, section) {
+  const act = ACTIVITIES[section];
+  if (!act || act.story.released || SHARE_MODE || reviewMode) return [];
+  const attempts = getSectionAttempts(name);
+  return storyActivities(act.story).filter(a => !attempts[a.key]);
+}
+/* What to do first, in a few plain words: "Do the other 5 first" / "Do the last one first" (title: "… Animal Adaptations activities …") */
+function doFirst(wait, title) {
+  const t = title ? ` ${title}` : '';
+  return wait.length === 1 ? `Do the last${t} ${title ? 'activity' : 'one'} first` : `Do the other ${wait.length}${t}${title ? ' activities' : ''} first`;
+}
+
 function applyLocks(name) {
   const attempts = getSectionAttempts(name);
   Object.values(ACTIVITIES).forEach(act => {
@@ -464,8 +484,10 @@ function applyLocks(name) {
     if (!btn) return;
     const done = attempts[act.key];
     const sub  = btn.querySelector('.form-btn-sub');
+    const wait = done === 1 ? secondTryWait(name, act.key) : [];
     if (act.story.released) { btn.classList.remove('locked'); sub.textContent = done ? '✅ Done · practice it again any time' : act.sub; }
     else if (done === 0) { btn.classList.remove('locked'); sub.textContent = act.sub; }
+    else if (wait.length) { btn.classList.add('locked');   sub.textContent = `✅ Done once · 🔒 ${doFirst(wait)}`; }
     else if (done === 1) { btn.classList.remove('locked'); sub.textContent = '✅ Done once · 1 more try'; }
     else                 { btn.classList.add('locked');    sub.textContent = '🔒 2 of 2 tries used · ask Mr. O'; }
   });
@@ -897,8 +919,22 @@ const app = {
     const attempts = getSectionAttempts(this.studentName);
     const done     = attempts[section];
     const name1    = getFirstName(this.studentName);
+    const act      = ACTIVITIES[section];
 
-    if (done < 2 || unlockedSections.has(section) || ACTIVITIES[section].story.released) {
+    // one time through first: a 2nd try waits until every activity of the story is done once (see secondTryWait)
+    // The Teacher PIN starts this ONE try early (unlockedSections is not used: that would also skip the 2-try lock later)
+    const wait = done === 1 ? secondTryWait(this.studentName, section) : [];
+    if (wait.length) {
+      this.showPinModal(
+        '🔒 Do every activity once first',
+        `${name1}, d${doFirst(wait, act.story.title).slice(1)}. Then you can do this one again. ` +
+        `Still to do: ${wait.map(a => `List ${a.list.n} ${a.short}`).join(', ')}. Mr. O: type the Teacher PIN to allow a 2nd try now.`,
+        () => this.startSession(section)
+      );
+      return;
+    }
+
+    if (done < 2 || unlockedSections.has(section) || act.story.released) {
       this.startSession(section);
     } else {
       this.showPinModal(
@@ -2233,13 +2269,17 @@ const app = {
     if (!btn || !note) return;
     const used = getSectionAttempts(this.studentName)[this.currentSection] || 0;
     const free = SHARE_MODE || reviewMode || (ACTIVITIES[this.currentSection] && ACTIVITIES[this.currentSection].story.released);
-    const left = free ? 1 : Math.max(0, 2 - used);
+    // one time through first: after the 1st try, "again" waits until every activity of the story is done once
+    const wait = !free && used === 1 ? secondTryWait(this.studentName, this.currentSection) : [];
+    const left = free ? 1 : wait.length ? 0 : Math.max(0, 2 - used);
     btn.classList.toggle('hidden', left === 0);
     const sub = document.getElementById('again-sub');
     if (sub) sub.textContent = free ? 'Start this one over.'
       : `Start this one over. You have ${left} ${left === 1 ? 'try' : 'tries'} left.`;
     note.classList.toggle('hidden', left !== 0);
-    note.textContent = left === 0 ? '✅ You used both tries for this activity. Go back to your menu to pick another one.' : '';
+    note.textContent = wait.length
+      ? `🔒 ${doFirst(wait, ACTIVITIES[this.currentSection].story.title)}. Then you can do this one again.`
+      : left === 0 ? '✅ You used both tries for this activity. Go back to your menu to pick another one.' : '';
   },
 
   tryAgain() {
