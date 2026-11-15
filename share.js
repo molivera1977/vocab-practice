@@ -123,6 +123,11 @@
     };
     makeRoom();
     window.addEventListener('resize', makeRoom);
+    /* Paper (v7, Marcos 11/15: "Yes, fix printing"): the strip is for the screen. Printed, it took the top of the page and
+       its room pushed a full-page answer key past the paper (Dollars and Sense: page 1 showed 3 of its 4 boxes). */
+    var paper = document.createElement('style');
+    paper.textContent = '@media print { .share-banner { display: none !important; } html { padding-top: 0 !important; } }';
+    document.head.appendChild(paper);
     var each = function (selector, fn) { Array.prototype.forEach.call(document.querySelectorAll(selector), fn); };
     each('[onclick*="promptTeacherReview"]', function (el) { el.style.display = 'none'; });
 
