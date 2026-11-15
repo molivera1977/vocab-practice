@@ -29,6 +29,10 @@
    data-guest-start and setting window.SHARE_OPEN_TEACHER to a
    function that opens its Teacher screen. A site without it treats
    the teacher code as a plain guest view.
+   The teacher card's two lines have defaults; a site whose Try it
+   or answer key differs says so on that same button (v6, 11/14):
+     data-guest-try="…"  the 👀 Try it as a student line
+     data-guest-key="…"  the ✅ Answer key line (e.g. "… and why")
 ═══════════════════════════════════════════════════════ */
 (function () {
   var SHARE_CODE = 'mro';       // the student guest code — change it here to shut old links off
@@ -219,17 +223,21 @@
           c.appendChild(ul);
           row.appendChild(c);
         };
-        /* Teacher Mode in plain words for a visitor who has never seen it. Slide Mode is listed only on a site that
-           has it (its button is marked data-guest-slides). */
+        /* Teacher Mode in plain words for a visitor who has never seen it. Each line says only what is true of this
+           site (Marcos 11/14: "Yes, fix the wording" — the card promised "the right answer and why" on sites whose key
+           has no "why", and "⏩ skips the waits" on Math Fact Review, which has no waits). The defaults: Try it as on every
+           engine site (each has ⏩ Skip the wait), and a key that promises no "why". A site that does more, or differs,
+           says so on its start button. Slide Mode is listed only on a site that has it
+           (its button is marked data-guest-slides). */
         var tools = [
-          ['👀', 'Try it as a student', 'Any part, start to score. ⏩ skips the waits.'],
-          ['✅', 'Answer key', 'Every question, the right answer and why. Printable.']
+          ['👀', 'Try it as a student', start.getAttribute('data-guest-try') || 'Any part, start to score. ⏩ skips the waits.'],
+          ['✅', 'Answer key', start.getAttribute('data-guest-key') || 'Every question, the right answer marked. Printable.']
         ];
         if (document.querySelector('[data-guest-slides]')) {
           tools.push(['🖥️', 'Slide Mode', 'The lesson, big, one step at a time, for the board. Never the scored questions.']);
         }
         var tb = start.cloneNode(false);            // the site's own big-button look, in a color of its own
-        ['onclick', 'data-guest-start', 'id', 'disabled'].forEach(function (a) { tb.removeAttribute(a); });
+        ['onclick', 'data-guest-start', 'id', 'disabled', 'data-guest-try', 'data-guest-key'].forEach(function (a) { tb.removeAttribute(a); });
         tb.id = 'guest-teacher-btn';
         if (tb.tagName === 'BUTTON') tb.type = 'button';
         tb.textContent = '🧑‍🏫 Teacher / admin guest';
