@@ -211,8 +211,13 @@
     removeEventListener: function () { return real.removeEventListener.apply(real, arguments); },
     dispatchEvent: function () { return real.dispatchEvent.apply(real, arguments); }
   };
-  Object.defineProperty(voice, 'speaking', { get: function () { return !!cur || real.speaking; } });
-  Object.defineProperty(voice, 'pending', { get: function () { return queue.length > 0 || real.pending; } });
+  // As Chrome means them: speaking = a sound has started (the recording, or the device's own voice); a line still
+  // waiting for its recording is only pending. (11/16: reported as speaking before any sound, a line then handed to
+  // a device with no sound looked like a reading that started and ended — the pages' watch for voices that never
+  // say "end" (script.js addHighlightFallback) counted it heard, and a Listen opened unheard and unread. Found in
+  // the Lab's copy; site-tests kokoro-no-sound.spec.js.)
+  Object.defineProperty(voice, 'speaking', { get: function () { return !!(cur && cur.started) || real.speaking; } });
+  Object.defineProperty(voice, 'pending', { get: function () { return queue.length > 0 || !!(cur && !cur.started && !cur.sent) || real.pending; } });
   Object.defineProperty(voice, 'paused', { get: function () { return real.paused; } });
   Object.defineProperty(voice, 'onvoiceschanged', {
     get: function () { return real.onvoiceschanged; },
