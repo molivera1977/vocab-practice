@@ -1849,6 +1849,9 @@ const app = {
       this.streak = 0;
       this.missedQuestions.push({ id: q.id, q: plainText(q.q), skill: q.word, yourAnswer: picked, correct: rightText });
     }
+    // 📍 Right Now on the dashboard (Marcos 11/20: "Yes, those three"): every answer rides in the log, right or missed,
+    // so the teacher sees a ✓ / ✗ box per word while the student works. One try per question.
+    logEvent('answer', { id: q.id, ok: correct });
 
     document.querySelectorAll('.answer-btn').forEach((btn, i) => {
       btn.disabled = true;
